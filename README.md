@@ -28,7 +28,7 @@ You can use OpenAPI schema in this repository to generate your own client. Follo
 
 ```bash
 $ npm install --global @openapitools/openapi-generator-cli
-$ openapi-generator-cli generate -i https://raw.githubusercontent.com/lasuillard/raindrop-client/main/openapi.yaml -g typescript-axios --skip-validate-spec -o ./out
+$ openapi-generator-cli generate -i https://raw.githubusercontent.com/lasuillard-s/raindrop-client/main/openapi.yaml -g typescript-axios --skip-validate-spec -o ./out
 ```
 
 You may need Java installed as openapi-generator-cli uses it.

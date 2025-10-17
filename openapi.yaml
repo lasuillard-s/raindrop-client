@@ -14,7 +14,7 @@ info:
   termsOfService: https://developer.raindrop.io/terms
   contact:
     name: API documentation issues
-    url: https://github.com/lasuillard/raindrop-client/issues
+    url: https://github.com/lasuillard-s/raindrop-client/issues
 externalDocs:
   description: Official Raindrop API documentation
   url: https://developer.raindrop.io/

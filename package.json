@@ -10,16 +10,16 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/lasuillard/raindrop-client.git"
+		"url": "git+https://github.com/lasuillard-s/raindrop-client.git"
 	},
 	"author": {
 		"name": "Yuchan Lee",
 		"url": "https://github.com/lasuillard",
 		"email": "lasuillard@gmail.com"
 	},
-	"homepage": "https://github.com/lasuillard/raindrop-client",
+	"homepage": "https://github.com/lasuillard-s/raindrop-client",
 	"bugs": {
-		"url": "https://github.com/lasuillard/raindrop-client/issues"
+		"url": "https://github.com/lasuillard-s/raindrop-client/issues"
 	},
 	"engines": {
 		"node": ">=20"
