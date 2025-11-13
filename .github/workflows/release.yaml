@@ -1,24 +1,21 @@
 name: Release
 
 on:
-  push:
-    tags: [v*]
+  release:
+    types: [published]
 
 jobs:
-  release:
-    name: Release
+  publish-npm:
     runs-on: ubuntu-latest
+    environment: npm
     permissions:
       contents: write
       packages: write
       id-token: write
-    environment: npm
+    timeout-minutes: 10
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Set up Node
-        uses: actions/setup-node@v6
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
           node-version-file: package.json
           cache: npm
@@ -39,8 +36,9 @@ jobs:
         run: tar -czvf dist.tar.gz dist
 
       - name: Create release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v2.4.1
         with:
+          tag_name: ${{ github.event.release.tag_name }}
           generate_release_notes: true
           files: dist.tar.gz
 

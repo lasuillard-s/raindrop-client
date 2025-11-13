@@ -33,12 +33,6 @@ update:  ## Update deps and tools
 	pre-commit autoupdate
 .PHONY: update
 
-release:  ## Create new release
-	echo -n 'Enter new version: '
-	read new_version
-	npm version "$$new_version"
-.PHONY: release
-
 
 # =============================================================================
 # CI

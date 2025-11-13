@@ -6,16 +6,12 @@ on:
 
 jobs:
   build-docs:
-    name: Build Docs
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Set up Node
-        uses: actions/setup-node@v6
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
           node-version-file: package.json
           cache: npm
@@ -38,7 +34,6 @@ jobs:
           path: docs/
 
   deploy-docs:
-    name: Deploy Docs
     needs: build-docs
     runs-on: ubuntu-latest
     permissions:
