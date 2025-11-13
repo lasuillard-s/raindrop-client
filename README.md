@@ -19,7 +19,7 @@ Primary features and goals are:
 If you wish to use client package, install it:
 
 ```bash
-$ npm install @lasuillard/raindrop-client
+npm install @lasuillard/raindrop-client
 ```
 
 ## 🛠️ Generate your own client
@@ -27,8 +27,12 @@ $ npm install @lasuillard/raindrop-client
 You can use OpenAPI schema in this repository to generate your own client. Following is example using [openapitools/openapi-generator-cli](https://www.npmjs.com/package/@openapitools/openapi-generator-cli):
 
 ```bash
-$ npm install --global @openapitools/openapi-generator-cli
-$ openapi-generator-cli generate -i https://raw.githubusercontent.com/lasuillard-s/raindrop-client/main/openapi.yaml -g typescript-axios --skip-validate-spec -o ./out
+npm install --global @openapitools/openapi-generator-cli
+openapi-generator-cli generate \
+    --input-spec https://raw.githubusercontent.com/lasuillard-s/raindrop-client/main/openapi.yaml \
+    --generator-name typescript-axios \
+    --skip-validate-spec \
+    --output ./out
 ```
 
 You may need Java installed as openapi-generator-cli uses it.
