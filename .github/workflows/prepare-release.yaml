@@ -33,7 +33,7 @@ jobs:
         run: |
           tag="${{ inputs.tag }}"
           tag_no_v="${tag#v}"
-          npm version "$tag_no_v"
+          npm version --no-git-tag-version "$tag_no_v"
 
       - name: Generate GitHub App token
         uses: actions/create-github-app-token@v2
