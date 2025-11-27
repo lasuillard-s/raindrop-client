@@ -52,8 +52,8 @@
 		"@pollyjs/core": "^6.0.6",
 		"@pollyjs/persister-fs": "^6.0.6",
 		"@types/node": "^24.0.8",
-		"@vitest/coverage-v8": "^3.0.4",
-		"@vitest/ui": "^3.0.4",
+		"@vitest/coverage-v8": "^4.0.14",
+		"@vitest/ui": "^4.0.14",
 		"axios-mock-adapter": "^2.0.0",
 		"axios-rate-limit": "^1.4.0",
 		"dotenv": "^17.0.0",
@@ -62,10 +62,10 @@
 		"typedoc": "^0.28.1",
 		"typedoc-plugin-missing-exports": "^4.0.0",
 		"typescript": "^5.4.3",
-		"vite": "^6.3.5",
+		"vite": "^7.2.4",
 		"vite-plugin-dts": "^4.2.1",
 		"vite-tsconfig-paths": "^5.0.1",
-		"vitest": "^3.0.4"
+		"vitest": "^4.0.14"
 	},
 	"dependencies": {
 		"axios": "^1.6.8"
