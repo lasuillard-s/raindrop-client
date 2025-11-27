@@ -1,5 +1,4 @@
 import { resolve } from "node:path";
-import { codecovVitePlugin } from "@codecov/vite-plugin";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vitest/config";
@@ -11,13 +10,8 @@ export default defineConfig({
 		dts({
 			rollupTypes: true,
 		}),
-		codecovVitePlugin({
-			enableBundleAnalysis: true,
-			bundleName: "raindrop-client",
-			oidc: {
-				useGitHubOIDC: true,
-			},
-		}),
+		// NOTE: @codecov/vite-plugin is temporarily removed until it supports vite 7
+		// See: https://github.com/codecov/codecov-javascript-bundler-plugins/issues/264
 	],
 	build: {
 		lib: {

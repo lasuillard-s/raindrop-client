@@ -1,8 +1,7 @@
 import NodeHTTPAdapter from "@pollyjs/adapter-node-http";
 import { Polly } from "@pollyjs/core";
 import FSPersister from "@pollyjs/persister-fs";
-import type { Use } from "@vitest/runner";
-import type { Task } from "vitest";
+import type { Task, Use } from "@vitest/runner";
 import { taskId } from "./common";
 
 Polly.register(NodeHTTPAdapter);
