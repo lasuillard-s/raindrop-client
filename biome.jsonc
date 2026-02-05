@@ -1,6 +1,6 @@
 {
 	"files": {
-		"includes": ["src/**", "!**/src/generated/**", "!**/coverage/", "tests/**"]
+		"includes": ["src/**", "!**/src/generated/**/*", "!**/coverage/", "tests/**", "!tests/generated/**/*.html"]
 	},
 	"linter": {
 		"rules": {
