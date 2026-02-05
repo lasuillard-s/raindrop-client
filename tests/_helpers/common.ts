@@ -1,5 +1,5 @@
+import type { Task } from "@vitest/runner";
 import slugify from "slugify";
-import type { Task } from "vitest";
 
 export function taskId(task: Task): string {
 	let id = `${task.suite?.name || ""}-${task.name}`;
