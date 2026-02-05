@@ -1,8 +1,8 @@
 import { exec } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import type { Use } from "@vitest/runner";
-import type { ExpectStatic, Task } from "vitest";
+import type { Task, Use } from "@vitest/runner";
+import type { ExpectStatic } from "vitest";
 import { taskId } from "./common";
 
 export interface CreateTest {
