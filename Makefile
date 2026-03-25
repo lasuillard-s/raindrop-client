@@ -42,19 +42,10 @@ ci: generate lint test  ## Run CI tasks
 
 generate:  ## Generate codes from schemas
 	mkdir -p ./src/generated
-
-	function sig() {
-		find ./src/generated -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum | awk '{ print $$1 }'
-	}
-
-	before="$$(sig)"
-	npm run generate
-	after="$$(sig)"
-
-	if [[ "$$after" != "$$before" ]]; then
-		echo 'There are changes in generated codes.'
-		exit 1
-	fi
+	pipx run 'devobs~=0.2.1' assert-diff \
+		--target ./src/generated \
+		-- \
+		npm run generate
 .PHONY: generate
 
 format:  ## Run autoformatters
