@@ -43,9 +43,9 @@ ci: generate lint test  ## Run CI tasks
 generate:  ## Generate codes from schemas
 	mkdir -p ./src/generated
 	pipx run 'devobs~=0.2.1' assert-diff \
-		--target ./src/generated \
-		-- \
-		npm run generate
+	--target ./src/generated \
+	-- \
+	npm run generate
 .PHONY: generate
 
 format:  ## Run autoformatters
