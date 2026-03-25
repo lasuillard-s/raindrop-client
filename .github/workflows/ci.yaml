@@ -25,13 +25,14 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - uses: pre-commit/action@v3.0.1
-        env:
-          SKIP: vitest
+      - name: Verify generated code is up-to-date
+        run: make generate
 
-      # NOTE: Disabled for reason: manual intervention & update on codes are required
-      # - uses: pre-commit-ci/lite-action@v1.1.0
-      #   if: always()
+      - name: Lint with Biome
+        run: npm exec -- biome check --no-errors-on-unmatched
+
+      - name: Type check with TypeScript
+        run: npm exec -- tsc --noEmit
 
   test:
     runs-on: ubuntu-latest
