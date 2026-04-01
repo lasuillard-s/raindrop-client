@@ -61,8 +61,8 @@
 		"tslib": "^2.6.2",
 		"typedoc": "^0.28.1",
 		"typedoc-plugin-missing-exports": "^4.0.0",
-		"typescript": "^5.4.3",
-		"vite": "^6.3.5",
+		"typescript": "^6.0.2",
+		"vite": "^8.0.3",
 		"vite-plugin-dts": "^4.2.1",
 		"vite-tsconfig-paths": "^6.0.5",
 		"vitest": "^4.0.18"
