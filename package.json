@@ -40,7 +40,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "fmt": "biome format --write .",
-    "fmt:check": "biome format --check .",
+    "fmt:check": "biome format .",
     "lint": "biome lint .",
     "lint:fix": "biome lint --fix .",
     "typecheck": "tsc --noEmit",
