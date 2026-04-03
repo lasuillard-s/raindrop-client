@@ -28,6 +28,9 @@ jobs:
       - name: Verify generated code is up-to-date
         run: make generate
 
+      - name: Check formatting with Biome
+        run: npm run fmt:check
+
       - name: Lint with Biome
         run: npm run lint
 

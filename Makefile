@@ -56,7 +56,6 @@ fmt:  ## Run autoformatters
 .PHONY: fmt
 
 fix:  ## Apply autofixes
-	npm run fmt:check
 	npm run lint:fix
 .PHONY: fix
 
