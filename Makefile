@@ -25,8 +25,11 @@ help: Makefile  ## Show help
 # =============================================================================
 install:  ## Install deps and tools
 	npm install
-	pre-commit install --install-hooks
 .PHONY: install
+
+init:  ## Initialize the project
+	pre-commit install --install-hooks
+.PHONY: init
 
 update:  ## Update deps and tools
 	npm update
@@ -41,20 +44,25 @@ ci: generate lint test  ## Run CI tasks
 .PHONY: ci
 
 generate:  ## Generate codes from schemas
-	mkdir -p ./src/generated
+	mkdir --parents ./src/generated
 	pipx run 'devobs~=0.2.1' assert-diff \
 		--target ./src/generated \
 		-- \
 		npm run generate
 .PHONY: generate
 
-format:  ## Run autoformatters
-	npm exec -- biome format --write .
-.PHONY: format
+fmt:  ## Run autoformatters
+	npm run fmt
+.PHONY: fmt
+
+fix:  ## Apply autofixes
+	npm run fmt:check
+	npm run lint:fix
+.PHONY: fix
 
 lint: generate  ## Run all linters
-	npm exec -- biome lint .
-	npm exec -- tsc --noEmit
+	npm run lint
+	npm run typecheck
 .PHONY: lint
 
 test: generate  ## Run tests
