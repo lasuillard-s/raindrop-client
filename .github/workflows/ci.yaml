@@ -28,11 +28,14 @@ jobs:
       - name: Verify generated code is up-to-date
         run: make generate
 
+      - name: Check formatting with Biome
+        run: npm run fmt:check
+
       - name: Lint with Biome
-        run: npm exec -- biome check --no-errors-on-unmatched
+        run: npm run lint
 
       - name: Type check with TypeScript
-        run: npm exec -- tsc --noEmit
+        run: npm run typecheck
 
   test:
     runs-on: ubuntu-latest
