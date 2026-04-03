@@ -1,21 +1,21 @@
 {
-	"name": "lasuillard-s/raindrop-client",
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:24-trixie",
-	"features": {
-		"ghcr.io/devcontainers-extra/features/pre-commit:2": {},
-		"ghcr.io/devcontainers/features/java:1": {}
-	},
-	"postStartCommand": "./.devcontainer/postStartCommand.sh",
-	"updateContentCommand": "./.devcontainer/updateContentCommand.sh",
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"editorconfig.editorconfig",
-				"vitest.explorer",
-				"vivaxy.vscode-conventional-commits",
-				"42Crunch.vscode-openapi",
-				"biomejs.biome"
-			]
-		}
-	}
+  "name": "lasuillard-s/raindrop-client",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:20-trixie",
+  "features": {
+    "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
+    "ghcr.io/devcontainers/features/java:1": {}
+  },
+  "postStartCommand": "./.devcontainer/postStartCommand.sh",
+  "updateContentCommand": "./.devcontainer/updateContentCommand.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "editorconfig.editorconfig",
+        "vitest.explorer",
+        "vivaxy.vscode-conventional-commits",
+        "42Crunch.vscode-openapi",
+        "biomejs.biome"
+      ]
+    }
+  }
 }
