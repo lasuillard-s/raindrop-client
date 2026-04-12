@@ -2,7 +2,7 @@ import { exec } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import type { Task, Use } from "@vitest/runner";
-import type { ExpectStatic } from "vitest";
+import { expect } from "vitest";
 import { taskId } from "./common";
 
 export interface CreateTest {
@@ -29,7 +29,7 @@ export interface RegisterHookArgs {
 export type RegisterHook = (args: RegisterHookArgs) => void;
 
 export async function generateTypeTest(
-	{ task, expect }: { task: Task; expect: ExpectStatic },
+	{ task }: { task: Task },
 	use: Use<RegisterHook>,
 ) {
 	const hookFn: RegisterHook = (args: RegisterHookArgs) => {
