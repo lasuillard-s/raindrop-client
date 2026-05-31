@@ -40,7 +40,7 @@ export async function client(
 	{ axiosInstance }: { axiosInstance: AxiosInstance },
 	use: Use<Raindrop>,
 ) {
-	const accessToken = process.env.RAINDROP_API_TOKEN;
+	const accessToken = process.env.__RAINDROP_CLIENT_TEST_API_TOKEN;
 	const client = new Raindrop(
 		new Configuration({ accessToken }),
 		axiosInstance,
