@@ -4,8 +4,6 @@ MAKEFLAGS += --warn-undefined-variable
 MAKEFLAGS += --no-builtin-rules
 MAKEFLAGS += --silent
 
--include Makefile.*
-
 SHELL := bash
 .ONESHELL:
 .SHELLFLAGS := -eu -o pipefail -c

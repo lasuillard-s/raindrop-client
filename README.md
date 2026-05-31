@@ -39,7 +39,7 @@ You may need Java installed as openapi-generator-cli uses it.
 
 ## 💖 Contributing
 
-Dev Containers configured and ready to use. Detailed installation steps and requirements will not be described here.
+Please refer to [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ## 📜 License
 
