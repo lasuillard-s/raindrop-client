@@ -39,7 +39,7 @@ jobs:
             exit 0
           fi
           rm -rf ./tests/__recordings__/*
-          npm run test:unit --update
+          npm run test:unit -- --update
           npm run test:type
 
       - name: Check for API drift
@@ -67,7 +67,7 @@ jobs:
           token: ${{ steps.generate-token.outputs.token }}
           sign-commits: true
           commit-message: "fix: update API recordings due to drift detected"
-          title: "chore: update API recordings due to API drift"
+          title: "API drift detected"
           body: |
             ## API Drift Detection
 
