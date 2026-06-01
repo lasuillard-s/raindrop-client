@@ -853,6 +853,12 @@ export interface GetAllHighlightsResponse {
     'result': boolean;
     /**
      * 
+     * @type {number}
+     * @memberof GetAllHighlightsResponse
+     */
+    'count'?: number;
+    /**
+     * 
      * @type {Array<GetAllHighlightsResponseItemsInner>}
      * @memberof GetAllHighlightsResponse
      */
@@ -1213,6 +1219,12 @@ export interface GetHighlightsInCollectionResponse {
     'result': boolean;
     /**
      * 
+     * @type {number}
+     * @memberof GetHighlightsInCollectionResponse
+     */
+    'count'?: number;
+    /**
+     * 
      * @type {Array<GetAllHighlightsResponseItemsInner>}
      * @memberof GetHighlightsInCollectionResponse
      */
@@ -1315,6 +1327,12 @@ export interface GetPublicUserByNameResponseUser {
      * @memberof GetPublicUserByNameResponseUser
      */
     'config': GetPublicUserByNameResponseUserConfig;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetPublicUserByNameResponseUser
+     */
+    'emailConfirmed'?: boolean;
 }
 /**
  * 
@@ -1821,6 +1839,12 @@ export interface ImportHTMLBookmarkFileResponseItemBookmark {
      * @memberof ImportHTMLBookmarkFileResponseItemBookmark
      */
     'important': boolean;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof ImportHTMLBookmarkFileResponseItemBookmark
+     */
+    'highlights'?: Array<string>;
 }
 /**
  * 
@@ -1846,6 +1870,18 @@ export interface ImportHTMLBookmarkFileResponseItemFolder {
      * @memberof ImportHTMLBookmarkFileResponseItemFolder
      */
     'bookmarks': Array<ImportHTMLBookmarkFileResponseItemBookmark>;
+    /**
+     * 
+     * @type {string}
+     * @memberof ImportHTMLBookmarkFileResponseItemFolder
+     */
+    'created'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ImportHTMLBookmarkFileResponseItemFolder
+     */
+    'lastUpdate'?: string;
 }
 /**
  * 
@@ -2730,143 +2766,16 @@ export interface UpdateCurrentUserResponse {
     'result': boolean;
     /**
      * 
-     * @type {UpdateCurrentUserResponseUser}
+     * @type {User}
      * @memberof UpdateCurrentUserResponse
      */
-    'user': UpdateCurrentUserResponseUser;
+    'user': User;
     /**
      * 
-     * @type {UpdateCurrentUserResponseUser}
+     * @type {User}
      * @memberof UpdateCurrentUserResponse
      */
-    'item': UpdateCurrentUserResponseUser;
-}
-/**
- * 
- * @export
- * @interface UpdateCurrentUserResponseUser
- */
-export interface UpdateCurrentUserResponseUser {
-    /**
-     * 
-     * @type {number}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    '_id': number;
-    /**
-     * 
-     * @type {UserConfig}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'config': UserConfig;
-    /**
-     * 
-     * @type {UserDropbox}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'dropbox'?: UserDropbox;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'email': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'email_MD5'?: string;
-    /**
-     * 
-     * @type {UserFiles}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'files': UserFiles;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'fullName': string;
-    /**
-     * 
-     * @type {UserDropbox}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'gdrive'?: UserDropbox;
-    /**
-     * 
-     * @type {Array<Group>}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'groups': Array<Group>;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'password': boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'pro': boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'proExpire'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'registered': string;
-    /**
-     * 
-     * @type {UserTfa}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'tfa'?: UserTfa;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'avatar'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'lastAction'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'lastVisit'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    'lastUpdate'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof UpdateCurrentUserResponseUser
-     */
-    '__v'?: number;
+    'item': User;
 }
 /**
  * 
@@ -3666,6 +3575,12 @@ export interface User {
      * @memberof User
      */
     'lastUpdate'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof User
+     */
+    'emailConfirmed'?: boolean;
 }
 /**
  * 
@@ -3769,6 +3684,12 @@ export interface UserConfig {
      * @memberof UserConfig
      */
     'filters_hide'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof UserConfig
+     */
+    'ai_assistant'?: boolean;
 }
 /**
  * 

@@ -24,6 +24,7 @@ export class RaindropApi extends _RaindropApi {
 	 * @param params Request parameters.
 	 * @param options Axios request config.
 	 * @returns Array of raindrops.
+	 * @deprecated This function is deprecated and will be removed in a future release.
 	 */
 	async getAllRaindrops(
 		collectionId?: number,

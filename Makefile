@@ -68,7 +68,7 @@ test: generate  ## Run tests
 
 test-refresh: generate  ## Invalidate recordings and run tests to update them
 	rm -rf ./tests/__recordings__/*
-	npm run test:unit --update
+	npm run test:unit -- --update
 	npm run test:type
 .PHONY: test-refresh
 

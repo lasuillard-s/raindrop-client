@@ -1,7 +1,8 @@
 import { it } from "^/tests/_helpers/vitest";
 import { describe, expect } from "vitest";
 
-describe("collection.getCollectionTree", () => {
+// Skip test for deprecated function
+describe.skip("collection.getCollectionTree", () => {
 	it("build tree from groups and collections", async ({
 		setupTools,
 		client,

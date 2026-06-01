@@ -16,6 +16,7 @@ export class CollectionApi extends _CollectionApi {
 	/**
 	 * Create structured tree of collections.
 	 * @returns Root of tree.
+	 * @deprecated This function is deprecated and will be removed in a future release.
 	 */
 	async getCollectionTree() {
 		const [{ data: groups }, { data: collections }] = await Promise.all([

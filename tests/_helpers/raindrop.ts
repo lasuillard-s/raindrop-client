@@ -6,6 +6,7 @@ import type {
 	CreateRaindropRequest,
 	CreateRaindropResponse,
 } from "~/generated";
+import { sleep } from "./utils";
 
 export async function resetData(
 	{ client }: { client: Raindrop },
@@ -20,6 +21,9 @@ export async function resetData(
 
 	// Remove unsorted raindrops
 	await client.raindrop.removeRaindrops(0);
+
+	// Wait for changes apply
+	await sleep(2_000);
 
 	await use();
 }

@@ -9,7 +9,11 @@ it("getTagsInCollection", async ({
 	const collection = await setupTools.createCollection();
 	await setupTools.createRaindrop({
 		collection: { $id: collection.item._id },
-		tags: ["soup", "salad", "bread"],
+		tags: [
+			"getTagsInCollection-1",
+			"getTagsInCollection-2",
+			"getTagsInCollection-3",
+		],
 	});
 
 	const response = await client.tag.getTagsInCollection(collection.item._id);
@@ -19,15 +23,15 @@ it("getTagsInCollection", async ({
 		{
 		  "items": [
 		    {
-		      "_id": "bread",
+		      "_id": "getTagsInCollection-1",
 		      "count": 1,
 		    },
 		    {
-		      "_id": "salad",
+		      "_id": "getTagsInCollection-2",
 		      "count": 1,
 		    },
 		    {
-		      "_id": "soup",
+		      "_id": "getTagsInCollection-3",
 		      "count": 1,
 		    },
 		  ],
@@ -45,12 +49,12 @@ it("renameOrMergeTags", async ({
 	const collection = await setupTools.createCollection();
 	await setupTools.createRaindrop({
 		collection: { $id: collection.item._id },
-		tags: ["soup", "salad", "bread"],
+		tags: ["renameOrMergeTags-1", "renameOrMergeTags-2", "renameOrMergeTags-3"],
 	});
 
 	const response = await client.tag.renameOrMergeTags(collection.item._id, {
-		tags: ["soup", "salad"],
-		replace: "bread",
+		tags: ["renameOrMergeTags-1", "renameOrMergeTags-2"],
+		replace: "renameOrMergeTags-3",
 	});
 
 	generateTypeTest({ type: "SimpleResponse" });
@@ -70,12 +74,16 @@ it("removeTagsFromCollection", async ({
 	const collection = await setupTools.createCollection();
 	await setupTools.createRaindrop({
 		collection: { $id: collection.item._id },
-		tags: ["soup", "salad", "bread"],
+		tags: [
+			"removeTagsFromCollection-1",
+			"removeTagsFromCollection-2",
+			"removeTagsFromCollection-3",
+		],
 	});
 
 	const response = await client.tag.removeTagsFromCollection(
 		collection.item._id,
-		{ tags: ["soup", "salad"] },
+		{ tags: ["removeTagsFromCollection-1", "removeTagsFromCollection-2"] },
 	);
 	generateTypeTest({ type: "SimpleResponse" });
 	expect(response.data).toMatchInlineSnapshot(`
