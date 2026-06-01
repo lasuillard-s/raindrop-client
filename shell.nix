@@ -8,6 +8,6 @@ pkgs.mkShell {
     pkgs.gnumake
     pkgs.pre-commit
     pkgs.nodejs_20
-    pkgs.jre_minimal
+    pkgs.jre
   ];
 }
