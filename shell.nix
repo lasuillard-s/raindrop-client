@@ -7,7 +7,7 @@ pkgs.mkShell {
     pkgs.git
     pkgs.gnumake
     pkgs.pre-commit
-    pkgs.nodejs_20
+    pkgs.nodejs_22
     pkgs.jre
   ];
 }

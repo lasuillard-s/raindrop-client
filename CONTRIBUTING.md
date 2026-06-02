@@ -14,7 +14,7 @@ This is an unofficial Axios client for the Raindrop.io API, built using OpenAPI 
 
 ### Prerequisites
 
-- Node.js >= 20
+- Node.js >= 22
 - Java (required for OpenAPI generator CLI)
 - Make (optional, for using make targets which provide shortcuts for common tasks)
 
