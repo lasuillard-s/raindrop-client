@@ -76,6 +76,6 @@
     "axios": "^1.6.8"
   },
   "overrides": {
-    "vite": "8.0.12"
+    "vite": "$vite"
   }
 }
