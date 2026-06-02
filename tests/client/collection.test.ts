@@ -2,7 +2,7 @@ import { it } from "^/tests/_helpers/vitest";
 import { describe, expect } from "vitest";
 
 // Skip test for deprecated function
-describe.skip("collection.getCollectionTree", () => {
+describe("collection.getCollectionTree", () => {
 	it("build tree from groups and collections", async ({
 		setupTools,
 		client,
@@ -48,12 +48,12 @@ describe.skip("collection.getCollectionTree", () => {
 		expect(visits).toMatchInlineSnapshot(`
 			[
 			  "null: root",
-			  "57170825: A",
-			  "57170826: A1",
-			  "57170828: B",
-			  "57170830: B1",
-			  "57170832: B2",
-			  "57170833: C",
+			  "71535749: A",
+			  "71535750: A1",
+			  "71535751: B",
+			  "71535752: B1",
+			  "71535753: B2",
+			  "71535754: C",
 			]
 		`);
 	});
