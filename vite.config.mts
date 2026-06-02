@@ -43,7 +43,7 @@ export default defineConfig({
 		// NOTE: outputFile should passed to CLI to avoid report being overwritten
 		coverage: {
 			include: ["src/**"],
-			exclude: ["src/**/__mocks__/*", "src/**/*.d.ts"],
+			exclude: ["src/**/__mocks__/*", "src/**/*.d.ts", 'src/generated/.openapi-generator/*'],
 			reporter: ["text", "clover", "html"],
 		},
 		setupFiles: ["dotenv/config", "tests/setup.ts"],
