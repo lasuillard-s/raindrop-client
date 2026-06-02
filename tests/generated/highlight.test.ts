@@ -20,13 +20,14 @@ it("getAllHighlights", async ({
 	generateTypeTest({ type: "GetAllHighlightsResponse" });
 	expect(response.data).toMatchInlineSnapshot(`
 		{
+		  "count": 1,
 		  "items": [
 		    {
-		      "_id": "6864c37275bcdcd7ff5d2356",
-		      "created": "2025-07-02T05:28:18.391Z",
+		      "_id": "6a1d2d828e39dc469704b1e0",
+		      "created": "2026-06-01T06:58:10.596Z",
 		      "link": "https://raindrop.io",
 		      "note": "",
-		      "raindropRef": 1210217494,
+		      "raindropRef": 1740426258,
 		      "tags": [],
 		      "text": "ignore",
 		      "title": "getAllHighlights",
@@ -61,13 +62,14 @@ it("getHighlightsInCollection", async ({
 	generateTypeTest({ type: "GetHighlightsInCollectionResponse" });
 	expect(response.data).toMatchInlineSnapshot(`
 		{
+		  "count": 1,
 		  "items": [
 		    {
-		      "_id": "6864c1ced3dc6ebeda262507",
-		      "created": "2025-07-02T05:21:18.759Z",
+		      "_id": "6a1d2d835e7011229703661e",
+		      "created": "2026-06-01T06:58:11.727Z",
 		      "link": "https://raindrop.io",
 		      "note": "",
-		      "raindropRef": 1210213904,
+		      "raindropRef": 1740426275,
 		      "tags": [],
 		      "text": "ignore",
 		      "title": "getHighlightsInCollection",

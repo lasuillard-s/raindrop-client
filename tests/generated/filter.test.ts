@@ -9,7 +9,7 @@ it("getFilters", async ({
 }) => {
 	await setupTools.createRaindrop();
 	await setupTools.createRaindrop({ important: true });
-	await setupTools.createRaindrop({ tags: ["science", "novel"] });
+	await setupTools.createRaindrop({ tags: ["getFilters-1", "getFilters-2"] });
 
 	const response = await client.filter.getFilters(0);
 
@@ -19,7 +19,7 @@ it("getFilters", async ({
 		  "collectionId": 0,
 		  "created": [
 		    {
-		      "_id": "2025-07",
+		      "_id": "2026-06",
 		      "count": 3,
 		    },
 		  ],
@@ -32,11 +32,11 @@ it("getFilters", async ({
 		  "result": true,
 		  "tags": [
 		    {
-		      "_id": "novel",
+		      "_id": "getFilters-1",
 		      "count": 1,
 		    },
 		    {
-		      "_id": "science",
+		      "_id": "getFilters-2",
 		      "count": 1,
 		    },
 		  ],

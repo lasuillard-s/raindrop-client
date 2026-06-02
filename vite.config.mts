@@ -1,5 +1,5 @@
-import { resolve } from "node:path";
 import { codecovVitePlugin } from "@codecov/vite-plugin";
+import { resolve } from "node:path";
 import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vitest/config";
@@ -31,19 +31,19 @@ export default defineConfig({
 		target: "ESNext",
 	},
 	test: {
+    // Run tests in serial to avoid race conditions
+    fileParallelism: false,
 		sequence: {
-			// Run sequentially due to API testing getting messed up
 			concurrent: false,
 		},
-		testTimeout: 10000,
+		testTimeout: 10_000,
 		include: ["tests/**/*.{test,spec}.{js,ts}"],
 		exclude: ["**/__mocks__/*"],
 		reporters: ["default", "junit"],
 		// NOTE: outputFile should passed to CLI to avoid report being overwritten
 		coverage: {
-			all: true,
 			include: ["src/**"],
-			exclude: ["src/**/__mocks__/*", "src/**/*.d.ts"],
+			exclude: ["src/**/__mocks__/*", "src/**/*.d.ts", 'src/generated/.openapi-generator/*'],
 			reporter: ["text", "clover", "html"],
 		},
 		setupFiles: ["dotenv/config", "tests/setup.ts"],

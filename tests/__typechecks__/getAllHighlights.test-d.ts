@@ -9,12 +9,13 @@ it("getAllHighlights", () => {
 				link: "https://raindrop.io",
 				title: "getAllHighlights",
 				tags: [],
-				_id: "6864c37275bcdcd7ff5d2356",
+				_id: "6a1d2d828e39dc469704b1e0",
 				text: "ignore",
 				note: "",
-				created: "2025-07-02T05:28:18.391Z",
-				raindropRef: 1210217494,
+				created: "2026-06-01T06:58:10.596Z",
+				raindropRef: 1740426258,
 			},
 		],
+		count: 1,
 	});
 });

@@ -52,7 +52,7 @@ jobs:
 
       - name: Run tests
         env:
-          RAINDROP_API_TOKEN: ${{ secrets.RAINDROP_API_TOKEN }}
+          __RAINDROP_CLIENT_TEST_API_TOKEN: ${{ secrets.__RAINDROP_CLIENT_TEST_API_TOKEN }}
         run: npm run test:unit
 
       - name: Run type tests

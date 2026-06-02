@@ -5,9 +5,9 @@ it("getTagsInCollection", () => {
 	assertType<GetTagsInCollectionResponse>({
 		result: true,
 		items: [
-			{ _id: "bread", count: 1 },
-			{ _id: "salad", count: 1 },
-			{ _id: "soup", count: 1 },
+			{ _id: "getTagsInCollection-1", count: 1 },
+			{ _id: "getTagsInCollection-2", count: 1 },
+			{ _id: "getTagsInCollection-3", count: 1 },
 		],
 	});
 });

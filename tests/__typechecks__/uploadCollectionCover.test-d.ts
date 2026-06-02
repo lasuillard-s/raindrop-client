@@ -5,7 +5,7 @@ it("uploadCollectionCover", () => {
 	assertType<UploadCollectionCoverResponse>({
 		result: true,
 		item: {
-			_id: 57171605,
+			_id: 71498490,
 			title: "uploadCollectionCover",
 			description: "",
 			slug: "upload-collection-cover",
@@ -16,14 +16,13 @@ it("uploadCollectionCover", () => {
 			view: "list",
 			count: 0,
 			cover: [
-				"https://up.raindrop.io/collection/thumbs/571/716/05/1751439490570.png",
+				"https://up.raindrop.io/collection/thumbs/714/984/90/1780297061755.png",
 			],
 			sort: 0,
 			expanded: true,
-			lastAction: "2025-07-02T06:58:09.613Z",
-			created: "2025-07-02T06:58:09.614Z",
-			lastUpdate: "2025-07-02T06:58:10.664Z",
-			color: "#cc0404",
+			lastAction: "2026-06-01T06:57:41.240Z",
+			created: "2026-06-01T06:57:41.240Z",
+			lastUpdate: "2026-06-01T06:57:42.657Z",
 			__v: 1,
 			access: { for: 2067190, level: 4, root: false, draggable: true },
 			author: true,

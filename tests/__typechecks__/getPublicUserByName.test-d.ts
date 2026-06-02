@@ -11,9 +11,9 @@ it("getPublicUserByName", () => {
 			email: "",
 			avatar: "",
 			pro: false,
-			lastAction: "2025-07-02T05:21:12.753Z",
+			lastAction: "2026-06-01T06:58:11.773Z",
 			registered: "2024-04-21T06:46:01.480Z",
-			lastUpdate: "2025-07-02T05:21:12.753Z",
+			lastUpdate: "2026-06-01T06:58:11.774Z",
 			config: {
 				raindrops_hide: [
 					"list_excerpt",
@@ -23,6 +23,7 @@ it("getPublicUserByName", () => {
 				],
 				nested_view_legacy: true,
 			},
+			emailConfirmed: true,
 		},
 	});
 });

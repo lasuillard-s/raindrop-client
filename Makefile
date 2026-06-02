@@ -4,8 +4,6 @@ MAKEFLAGS += --warn-undefined-variable
 MAKEFLAGS += --no-builtin-rules
 MAKEFLAGS += --silent
 
--include Makefile.*
-
 SHELL := bash
 .ONESHELL:
 .SHELLFLAGS := -eu -o pipefail -c
@@ -69,8 +67,8 @@ test: generate  ## Run tests
 .PHONY: test
 
 test-refresh: generate  ## Invalidate recordings and run tests to update them
-	rm -rf ./tests/__recordings__/*
-	npm run test:unit --update
+	rm --recursive --force ./tests/__recordings__/*
+	npm run test:unit -- --update
 	npm run test:type
 .PHONY: test-refresh
 
@@ -83,7 +81,7 @@ docs:  ## Generate dev documents
 # Handy Scripts
 # =============================================================================
 clean:  ## Remove temporary files
-	rm -rf coverage/ junit.xml dist/ tests/__typechecks__
+	rm --recursive --force coverage/ junit.xml dist/ tests/__typechecks__
 	find . -path '*/__snapshots__*' -delete
 	find . -path "*.log*" -delete
 .PHONY: clean
