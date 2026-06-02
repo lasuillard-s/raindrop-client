@@ -1,11 +1,18 @@
 {
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
 	"files": {
 		"includes": [
 			"src/**",
 			"!**/src/generated/**/*",
 			"!**/coverage/",
 			"tests/**",
-			"!tests/generated/**/*.html"
+			"!tests/generated/**/*.html",
+			"tsup.config.ts",
+			"vitest.config.ts",
+			"openapitools.json",
+			"package.json",
+			"tsconfig.json",
+			"biome.jsonc"
 		]
 	},
 	"linter": {

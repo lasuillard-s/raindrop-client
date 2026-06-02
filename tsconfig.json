@@ -3,11 +3,7 @@
 		"target": "ES2020",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
-		"lib": [
-			"ES2020",
-			"DOM",
-			"DOM.Iterable"
-		],
+		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		"skipLibCheck": true,
 		"moduleResolution": "bundler",
 		"allowImportingTsExtensions": true,
@@ -18,20 +14,11 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
-		"types": [
-			"vitest/importMeta"
-		],
+		"types": ["vitest/importMeta"],
 		"paths": {
-			"^/*": [
-				"./*"
-			],
-			"~/*": [
-				"./src/*"
-			]
-		},
+			"^/*": ["./*"],
+			"~/*": ["./src/*"]
+		}
 	},
-	"include": [
-		"src",
-		"tests"
-	]
+	"include": ["src", "tests"]
 }
