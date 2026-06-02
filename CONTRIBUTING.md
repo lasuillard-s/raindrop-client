@@ -61,8 +61,6 @@ $ make init
 
 This project uses [Vitest](https://vitest.dev/) for unit testing and [Polly.js](https://polly.js.org/) for HTTP request mocking/recording.
 
-**Note:** While Vite typically uses `vite.config.ts`, this project uses `vite.config.mts` to support top-level await in the configuration.
-
 ### ▶️ Test Execution
 
 To run all tests:
