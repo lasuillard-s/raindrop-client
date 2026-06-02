@@ -4,7 +4,7 @@
 			"openapi.yaml"
 		]
 	},
-	"[javascript][typescript]": {
+	"[javascript][typescript][json][jsonc]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	}
 }
