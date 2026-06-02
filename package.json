@@ -22,7 +22,7 @@
     "url": "https://github.com/lasuillard-s/raindrop-client/issues"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "packageManager": "npm@11.16.0",
   "main": "./dist/index.cjs.js",

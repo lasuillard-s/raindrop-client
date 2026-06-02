@@ -16,9 +16,6 @@ jobs:
           node-version-file: package.json
           cache: npm
 
-      - name: Update npm
-        run: npm install --global npm@latest
-
       - name: Install deps
         run: npm ci
 
