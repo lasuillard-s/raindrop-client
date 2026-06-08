@@ -43,7 +43,7 @@ ci: generate lint test  ## Run CI tasks
 
 generate:  ## Generate codes from schemas
 	mkdir --parents ./src/generated
-	pipx run 'devobs~=0.2.1' assert-diff \
+	pipx run 'devobs~=0.2.6' assert-diff \
 		--target ./src/generated \
 		-- \
 		npm run generate
