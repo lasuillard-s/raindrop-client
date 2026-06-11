@@ -64,7 +64,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "2.4.16",
 		"@codecov/vite-plugin": "2.0.1",
-		"@openapitools/openapi-generator-cli": "2.34.0",
+		"@openapitools/openapi-generator-cli": "2.35.0",
 		"@pollyjs/adapter-node-http": "6.0.6",
 		"@pollyjs/core": "6.0.6",
 		"@pollyjs/persister-fs": "6.0.6",
