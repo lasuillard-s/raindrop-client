@@ -6,7 +6,9 @@
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": ["^openapitools.json$"],
+      "managerFilePatterns": [
+        "/^openapitools.json$/"
+      ],
       "matchStrings": ["\"version\": \\s*\"(?<currentValue>[^\"]+)\""],
       "datasourceTemplate": "maven",
       "depNameTemplate": "org.openapitools:openapi-generator"
