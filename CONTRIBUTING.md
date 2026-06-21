@@ -102,6 +102,6 @@ The repository uses GitHub Actions for releases and documentation:
 1. Run the [Prepare Release](https://github.com/lasuillard-s/raindrop-client/actions/workflows/prepare-release.yaml) workflow manually with a semver tag such as `v0.8.1`.
 1. Review and merge the pull request created by the workflow.
 1. Create and publish a GitHub release with the same tag.
-1. The [Release](./.github/workflows/release.yaml) workflow builds and publishes the package to npm.
+1. The [Release](./.github/workflows/release.yaml) workflow builds the package, attaches `dist.tar.gz` to the GitHub release, and publishes the package to npm.
 
 By pushing a new tag, documentation is also built and published to [GitHub Pages](https://lasuillard-s.github.io/raindrop-client/) automatically.
