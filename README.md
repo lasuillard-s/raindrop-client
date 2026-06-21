@@ -1,8 +1,8 @@
 # raindrop-client
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![npm version](https://img.shields.io/npm/v/%40lasuillard%2Fraindrop-client)](https://www.npmjs.com/package/@lasuillard/raindrop-client)
 [![codecov](https://codecov.io/gh/lasuillard-s/raindrop-client/graph/badge.svg?token=bPq2geqXLe)](https://codecov.io/gh/lasuillard-s/raindrop-client)
+[![npm version](https://img.shields.io/npm/v/%40lasuillard%2Fraindrop-client)](https://www.npmjs.com/package/@lasuillard/raindrop-client)
 
 An Axios client for Raindrop.io, generated with OpenAPI Generator.
 
