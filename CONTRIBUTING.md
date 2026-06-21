@@ -17,7 +17,7 @@ This project uses:
 - [TypeScript](https://www.typescriptlang.org/)
 - [Axios](https://axios-http.com/) for HTTP requests
 - [OpenAPI Generator](https://openapi-generator.tech/) for the generated client in `src/generated/`
-- [Vitest](https://vitest.dev/) and [Polly.js](https://pollyjs.org/) for tests and recorded HTTP fixtures
+- [Vitest](https://vitest.dev/) and [Polly.js](https://netflix.github.io/pollyjs/#/) for tests and recorded HTTP fixtures
 - [Biome](https://biomejs.dev/) for formatting and linting
 - [tsup](https://tsup.egoist.dev/) for package builds
 
@@ -55,7 +55,7 @@ Before opening a pull request, run `just ci` to verify formatting, linting, type
 
 ### 🧪 Test setup
 
-This project uses [Vitest](https://vitest.dev/) for unit and type tests and [Polly.js](https://pollyjs.org/) for HTTP request recording. Run `npm run test` to execute the full suite. You can also run them separately:
+This project uses [Vitest](https://vitest.dev/) for unit and type tests and [Polly.js](https://netflix.github.io/pollyjs/#/) for HTTP request recording. Run `npm run test` to execute the full suite. You can also run them separately:
 
 - `npm run test:unit` runs the unit tests with coverage
 - `npm run test:type` runs the type tests only
