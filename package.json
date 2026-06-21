@@ -4,7 +4,7 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"description": "Axios client built with OpenAPI generator for Raindrop.io.",
+	"description": "An Axios client for Raindrop.io, generated with OpenAPI Generator.",
 	"keywords": [
 		"raindrop.io",
 		"axios",
