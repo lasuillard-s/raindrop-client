@@ -56,7 +56,7 @@ fix:
     npm run lint:fix
     npm run fmt
 
-# Build all projects
+# Build the library
 build: generate
     npm run build
 
