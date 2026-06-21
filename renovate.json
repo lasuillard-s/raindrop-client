@@ -2,5 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>lasuillard-s/renovate-config"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^openapitools.json$"],
+      "matchStrings": ["\"version\": \\s*\"(?<currentValue>[^\"]+)\""],
+      "datasourceTemplate": "maven",
+      "depNameTemplate": "org.openapitools:openapi-generator"
+    }
   ]
 }

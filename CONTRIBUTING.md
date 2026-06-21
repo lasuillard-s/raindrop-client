@@ -1,136 +1,107 @@
-# 🤝 Contributing
+# ❤️‍🔥 Contributing to this project
 
-Thank you for your interest in contributing to raindrop-client!
+Thank you for your interest in contributing to **raindrop-client**.
 
-## 🏗️ Project Overview
+## 🐛 Reporting issues
 
-This is an unofficial Axios client for the Raindrop.io API, built using OpenAPI generator. The project aims to:
+Please report issues in our [GitHub repository](https://github.com/lasuillard-s/raindrop-client/issues). Before submitting an issue, search for existing issues to avoid duplicates.
 
-- Provide an unofficial OpenAPI schema for Raindrop.io
-- Bridge the gap between official documentation and actual API responses through schema testing
-- Deliver a type-safe, generated client package with additional functionality
+## 🏗️ Project overview
 
-## 🛠️ Development Setup
+This project is an unofficial Axios client for the Raindrop.io API. It uses the OpenAPI schema in this repository to generate the published package and the test fixtures that keep the schema aligned with the API.
 
-### Prerequisites
+### 🛠️ Tech stack
 
-- Node.js >= 22
-- Java (required for OpenAPI generator CLI)
-- Make (optional, for using make targets which provide shortcuts for common tasks)
+This project uses:
 
-### Dev Container
+- [TypeScript](https://www.typescriptlang.org/)
+- [Axios](https://axios-http.com/) for HTTP requests
+- [OpenAPI Generator](https://openapi-generator.tech/) for the generated client in `src/generated/`
+- [Vitest](https://vitest.dev/) and [Polly.js](https://netflix.github.io/pollyjs/#/) for tests and recorded HTTP fixtures
+- [Biome](https://biomejs.dev/) for formatting and linting
+- [tsup](https://tsup.egoist.dev/) for package builds
 
-You can used Dev Container configuration located in `.devcontainer.example` directory. You can copy it to `.devcontainer` and modify it to your needs.
+### 📂 Key directory structure
 
-### Nix
+- `src/`: Source code
+- `src/client/`: Handwritten client wrappers and convenience methods
+- `src/generated/`: OpenAPI-generated client code and types
+- `tests/generated/`: Tests for the generated code
+- `tests/__typechecks__/`: Generated type assertions
+- `tests/__recordings__/`: Polly.js recordings used by the tests
+- `flake.nix`: For the Nix-based development environment
+- `Justfile`: Development commands
+- `openapi.yaml`: Unofficial OpenAPI schema for Raindrop.io
+- `openapitools.json`: OpenAPI Generator CLI configuration
+- `package.json`: Project configuration and dependencies
 
-Alternatively, you can use the provided Nix configuration (`shell.nix`) for an isolated development environment. Use it with your preferred tools such as [direnv](https://direnv.net/), [nix-direnv](https://github.com/nix-community/nix-direnv), and so on.
+## 🔧 Set up the development environment
 
-### Make Targets
+The repository provides a Nix-based development environment. Run `nix develop` to enter the shell, then run `just install` to install dependencies.
 
-Run `make` to list available targets. It should show something like this:
+The Nix shell provides the tools used in this repository, including:
+
+- `just`
+- `pre-commit`
+- `nodejs_24` (including `npm`)
+- `jre`
+- `pipx`
+
+If you prefer a Dev Container, an example configuration is available in [`.devcontainer.example/devcontainer.json`](./.devcontainer.example/devcontainer.json). Copy it to `.devcontainer/devcontainer.json` to use it locally.
+
+## ✅ Verifying changes
+
+Before opening a pull request, run `just ci` to verify formatting, linting, type checks, generated code, and tests.
+
+### 🧪 Test setup
+
+This project uses [Vitest](https://vitest.dev/) for unit and type tests and [Polly.js](https://netflix.github.io/pollyjs/#/) for HTTP request recording. Run `npm run test` to execute the full suite. You can also run them separately:
+
+- `npm run test:unit` runs the unit tests with coverage
+- `npm run test:type` runs the type tests only
+
+#### Test recording
+
+Recorded HTTP fixtures live in [`tests/__recordings__`](./tests/__recordings__). They let the test suite run offline without hitting the live Raindrop.io API for every case.
+
+To refresh the recordings and regenerate the matching type assertions:
 
 ```bash
-$ make
-Makefile
-help                           Show help
-install                        Install deps and tools
-init                           Initialize the project
-update                         Update deps and tools
-ci                             Run CI tasks
-generate                       Generate codes from schemas
-fmt                            Run autoformatters
-fix                            Apply autofixes
-lint                           Run all linters
-test                           Run tests
-test-refresh                   Invalidate recordings and run tests to update them
-docs                           Generate dev documents
-clean                          Remove temporary files
+__RAINDROP_CLIENT_TEST_API_TOKEN=your_token just test-refresh
 ```
-
-### Installation
-
-Run the following to install project dependencies and set up pre-commit hooks:
-
-```bash
-$ make install
-$ make init
-```
-
-## 🧪 Test Setup
-
-This project uses [Vitest](https://vitest.dev/) for unit testing and [Polly.js](https://polly.js.org/) for HTTP request mocking/recording.
-
-### ▶️ Test Execution
-
-To run all tests:
-
-```bash
-$ make test
-```
-
-This runs both unit tests and type tests. You can also run them separately:
-
-- `npm run test:unit` — Run unit tests with coverage
-- `npm run test:type` — Run type assertion tests only
-
-### 📼 Test Recordings
-
-Recordings are stored in `tests/__recordings__/` as Polly.js cassettes capturing real API responses. These recordings allow tests to run offline without making actual API calls.
-
-### 🔄 Test Recording Workflow
 
 > [!CAUTION]
-> **DO NOT** use your personal Raindrop.io account token for testing! It will make destructive changes to your account. Instead, create a test account and use its token.
-
-To record fresh API responses (requires `__RAINDROP_CLIENT_TEST_API_TOKEN`):
-
-```bash
-$ make test-refresh
-```
+> **Do not** use your personal Raindrop.io token for test recording. Use a dedicated test account instead.
 
 This command:
-1. Deletes all existing recordings
-2. Runs tests in Polly.js update mode to record fresh API responses
-3. Regenerates type tests based on the new recordings
 
-The `__RAINDROP_CLIENT_TEST_API_TOKEN` environment variable enables recording real API responses for test mocking. Create a Raindrop.io API token in your [Raindrop.io account settings](https://app.raindrop.io/settings/integrations) and set it before running tests:
+1. Deletes the existing recordings in `tests/__recordings__/`
+1. Re-runs the unit tests in update mode to record fresh API responses
+1. Regenerates the type tests under `tests/__typechecks__/`
 
-```bash
-$ __RAINDROP_CLIENT_TEST_API_TOKEN=your_token make test-refresh
-```
+The `__RAINDROP_CLIENT_TEST_API_TOKEN` environment variable is required for recording real API responses. The recordings are filtered to remove volatile values, but you should still review the resulting diffs before committing them.
 
-Your API tokens will be redacted from the recordings, but please double check the generated recordings does not contain your token.
+#### Type test generation
 
-### 🔬 Type Test Generation
+When tests run with `__RAINDROP_CLIENT_TEST_API_TOKEN` available, type tests are generated in `tests/__typechecks__/`. These validate that the TypeScript types still match real API responses.
 
-When tests run with `__RAINDROP_CLIENT_TEST_API_TOKEN` available, type tests are automatically generated in `tests/__typechecks__/`. These tests validate that the TypeScript types match actual API responses.
+The generation flow is:
 
-The generation process:
-1. Tests register type assertions using `generateTypeTest` hook
-2. After all tests complete, `generateAllTests()` creates TypeScript files with type assertions
-3. Generated files are formatted with Biome
+1. Tests register type assertions with `generateTypeTest`.
+1. After all tests complete, `generateAllTests()` writes the type-check files.
+1. Generated files are formatted with Biome.
 
-## 🏗️ Project Architecture
+## ✨ Submitting changes
 
-- `src/generated/` - Auto-generated code from OpenAPI schema (do not edit manually)
-- `src/client/` - Custom client code with convenience methods wrapping generated API
-- `openapi.yaml` - Unofficial OpenAPI schema for Raindrop.io API
-- `openapitools.json` - OpenAPI generator CLI configuration
+Please open pull requests on GitHub. Before submitting, make sure `just ci` passes and that any regenerated files are included in the change.
 
-## 🎨 Code Style and Linting
+## 🚀 Release process
 
-This project uses [Biome](https://biomejs.dev/) for formatting and linting.
+The repository uses GitHub Actions for releases and documentation:
 
-## 📝 Submitting Issues and Pull Requests
+1. Run the [Prepare Release](https://github.com/lasuillard-s/raindrop-client/actions/workflows/prepare-release.yaml) workflow manually with a semver tag such as `v0.8.1`.
+1. Review and merge the pull request created by the workflow.
+1. Create and publish a GitHub release with the same tag.
+1. The [Release](./.github/workflows/release.yaml) workflow builds the package, attaches `dist.tar.gz` to the GitHub release, and publishes the package to npm.
 
-Please feel free to submit issues and pull requests on GitHub. Any feedback is appreciated!
-
-## 🚀 Release Process
-
-Releases are published automatically through GitHub Actions. The release workflow operates in two stages:
-
-1. **Prepare Release** (`.github/workflows/prepare-release.yaml`): Triggered manually via `workflow_dispatch` with a semver tag input. It validates the tag format, bumps the package version, and opens a pull request titled `Release <tag>`.
-2. **Publish** (`.github/workflows/release.yaml`): Triggered when a GitHub release is published. It builds the package, creates a release archive, and publishes to npm using a trusted publisher configuration.
-
-Documentation is updated automatically via the `docs.yaml` workflow when new tags are pushed.
+By pushing a new tag, documentation is also built and published to [GitHub Pages](https://lasuillard-s.github.io/raindrop-client/) automatically.

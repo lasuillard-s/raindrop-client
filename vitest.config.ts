@@ -21,7 +21,7 @@ export default defineConfig({
 		},
 		testTimeout: 10_000,
 		include: ["tests/**/*.{test,spec}.{js,ts}"],
-		exclude: ["**/__mocks__/*"],
+		exclude: ["tests/__typechecks__/*", "**/__mocks__/*"],
 		reporters: ["default", "junit"],
 		// NOTE: outputFile should passed to CLI to avoid report being overwritten
 		coverage: {
@@ -37,6 +37,7 @@ export default defineConfig({
 		typecheck: {
 			// Run explicitly (`--typecheck`, `--typecheck.only`)
 			enabled: false,
+			include: ["tests/__typechecks__/**/*.test-d.ts"],
 		},
 	},
 });
