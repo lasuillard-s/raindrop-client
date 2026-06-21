@@ -60,7 +60,7 @@ This project uses [Vitest](https://vitest.dev/) for unit and type tests and [Pol
 - `npm run test:unit` runs the unit tests with coverage
 - `npm run test:type` runs the type tests only
 
-#### Test Recordings
+#### Test recording
 
 Recorded HTTP fixtures live in [`tests/__recordings__`](./tests/__recordings__). They let the test suite run offline without hitting the live Raindrop.io API for every case.
 
@@ -81,7 +81,7 @@ This command:
 
 The `__RAINDROP_CLIENT_TEST_API_TOKEN` environment variable is required for recording real API responses. The recordings are filtered to remove volatile values, but you should still review the resulting diffs before committing them.
 
-#### Type Test Generation
+#### Type test generation
 
 When tests run with `__RAINDROP_CLIENT_TEST_API_TOKEN` available, type tests are generated in `tests/__typechecks__/`. These validate that the TypeScript types still match real API responses.
 
