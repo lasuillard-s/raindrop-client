@@ -7,29 +7,35 @@ default_stages: [pre-commit]
 fail_fast: true
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
 
+  - repo: https://github.com/lasuillard-s/devobs
+    rev: v0.2.7
+    hooks:
+      - id: assert-diff
+        args: [--target, ./src/generated, --, npm, run, generate]
+
   - repo: local
     hooks:
-      - id: generate
-        name: Generate stubs and codes
+      - id: biome-check
+        name: biome check (fix)
         language: system
-        files: openapi.yaml
-        pass_filenames: false
-        entry: make generate
-
-      - id: biome
-        name: Fix with Biome
-        language: system
-        types_or: [javascript, ts, json]
+        types_or: [javascript, ts]
         entry: npm exec -- biome check
         args: [--write, --no-errors-on-unmatched]
 
+      - id: biome-format
+        name: biome format
+        language: system
+        types_or: [javascript, ts, json]
+        entry: npm exec -- biome format
+        args: [--write, --no-errors-on-unmatched]
+
       - id: typescript
-        name: Type check with TypeScript
+        name: typescript
         language: system
         types_or: [javascript, ts]
         pass_filenames: false
@@ -37,7 +43,7 @@ repos:
         args: [--noEmit]
 
       - id: vitest
-        name: Run tests with Vitest
+        name: vitest
         language: system
         types_or: [javascript, ts]
         pass_filenames: false

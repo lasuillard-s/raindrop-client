@@ -25,13 +25,15 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            git
-            gnumake
             pre-commit
-            nodejs_22
+            just
+            nodejs_24
             jre
             fixedPipx
           ];
+          shellHook = ''
+            pre-commit install
+          '';
         };
       }
     );

@@ -1,6 +1,9 @@
 {
 	"name": "@lasuillard/raindrop-client",
 	"version": "0.8.1",
+	"publishConfig": {
+		"access": "public"
+	},
 	"description": "Axios client built with OpenAPI generator for Raindrop.io.",
 	"keywords": [
 		"raindrop.io",
@@ -21,10 +24,6 @@
 	"bugs": {
 		"url": "https://github.com/lasuillard-s/raindrop-client/issues"
 	},
-	"engines": {
-		"node": ">=22"
-	},
-	"packageManager": "npm@11.17.0",
 	"files": [
 		"dist/",
 		"README.md",
@@ -44,9 +43,6 @@
 			"require": "./dist/index.js"
 		}
 	},
-	"publishConfig": {
-		"access": "public"
-	},
 	"scripts": {
 		"generate": "openapi-generator-cli generate --input-spec openapi.yaml --generator-name typescript-axios --output ./src/generated/ --skip-validate-spec --additional-properties enumPropertyNamingReplaceSpecialChar=true",
 		"dev": "vite",
@@ -59,7 +55,22 @@
 		"test": "npm run test:unit && npm run test:type",
 		"test:unit": "vitest --coverage --run --outputFile.junit=./junit.xml",
 		"test:type": "vitest --typecheck.only --run --outputFile.junit=./typecheck.junit.xml",
-		"make-docs": "typedoc --plugin typedoc-plugin-missing-exports src"
+		"make-docs": "typedoc --plugin typedoc-plugin-missing-exports --out ./typedoc src"
+	},
+	"dependencies": {
+		"axios": "1.*"
+	},
+	"devEngines": {
+		"runtime": {
+			"name": "node",
+			"version": ">=24",
+			"onFail": "error"
+		},
+		"packageManager": {
+			"name": "npm",
+			"version": ">=11",
+			"onFail": "error"
+		}
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.0",
@@ -73,6 +84,7 @@
 		"@vitest/ui": "4.1.9",
 		"axios-mock-adapter": "2.1.0",
 		"axios-rate-limit": "1.9.0",
+		"http-server": "14.1.1",
 		"slugify": "1.6.9",
 		"tslib": "2.8.1",
 		"tsup": "8.5.1",
@@ -81,8 +93,5 @@
 		"typescript": "6.0.3",
 		"vite-tsconfig-paths": "6.1.1",
 		"vitest": "4.1.9"
-	},
-	"dependencies": {
-		"axios": "^1.6.8"
 	}
 }

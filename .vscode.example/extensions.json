@@ -2,7 +2,6 @@
 	"recommendations": [
 		"editorconfig.editorconfig",
 		"vitest.explorer",
-		"vivaxy.vscode-conventional-commits",
 		"42crunch.vscode-openapi",
 		"biomejs.biome"
 	]
