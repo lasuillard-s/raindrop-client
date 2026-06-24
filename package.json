@@ -57,7 +57,6 @@
 		"test:type": "vitest --typecheck.only --run --outputFile.junit=./typecheck.junit.xml",
 		"make-docs": "typedoc --plugin typedoc-plugin-missing-exports --out ./typedoc src"
 	},
-	"dependencies": {},
 	"peerDependencies": {
 		"axios": "1.*"
 	},
@@ -83,6 +82,7 @@
 		"@types/node": "25.9.4",
 		"@vitest/coverage-v8": "4.1.9",
 		"@vitest/ui": "4.1.9",
+		"axios": "1.18.1",
 		"axios-mock-adapter": "2.1.0",
 		"axios-rate-limit": "1.9.0",
 		"http-server": "14.1.1",
