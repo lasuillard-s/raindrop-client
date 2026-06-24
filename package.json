@@ -57,7 +57,8 @@
 		"test:type": "vitest --typecheck.only --run --outputFile.junit=./typecheck.junit.xml",
 		"make-docs": "typedoc --plugin typedoc-plugin-missing-exports --out ./typedoc src"
 	},
-	"dependencies": {
+	"dependencies": {},
+	"peerDependencies": {
 		"axios": "1.*"
 	},
 	"devEngines": {
