@@ -13,5 +13,12 @@
       "datasourceTemplate": "maven",
       "depNameTemplate": "org.openapitools:openapi-generator"
     }
+  ],
+  "packageRules": [
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["dependencies", "peerDependencies"],
+      "rangeStrategy": "widen"
+    }
   ]
 }
