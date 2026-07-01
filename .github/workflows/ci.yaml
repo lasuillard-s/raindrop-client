@@ -11,10 +11,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  generate:
-    name: Generate
+  autogenerate:
+    name: Autogenerate
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 5
     permissions:
       contents: write
     outputs:
@@ -59,15 +59,18 @@ jobs:
 
       - name: Push generated client code if dependency update
         if: github.event_name == 'pull_request' && steps.generate.outputs.changed == 'true' && startsWith(github.head_ref, 'renovate/org.openapitools-openapi-generator-')
-        uses: stefanzweifel/git-auto-commit-action@v7
+        uses: iarekylew00t/verified-bot-commit@v2
         with:
-          commit_message: Autogenerate OpenAPI client
-          branch: ${{ github.head_ref }}
+          token: ${{ steps.generate-token.outputs.token }}
+          ref: ${{ github.head_ref }}
+          files: |
+            src/generated/**
+          message: Autogenerate OpenAPI client
 
   lint:
     name: Lint
-    needs: generate
-    if: needs.generate.outputs.changed == 'false'
+    needs: autogenerate
+    if: needs.autogenerate.outputs.changed == 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
@@ -96,8 +99,8 @@ jobs:
 
   test:
     name: Test
-    needs: generate
-    if: needs.generate.outputs.changed == 'false'
+    needs: autogenerate
+    if: needs.autogenerate.outputs.changed == 'false'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
