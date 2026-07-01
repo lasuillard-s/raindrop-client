@@ -1,8 +1,7 @@
 name: Autogenerate OpenAPI Client
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  push:
     branches: [renovate/org.openapitools-openapi-generator-*]
 
 concurrency:
