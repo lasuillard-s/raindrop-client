@@ -2,7 +2,8 @@ name: API Drift Detection
 
 on:
   schedule:
-    - cron: "0 0 * * 0" # Weekly on Sunday at midnight UTC
+    - cron: "0 9 * * 1" # Every Monday at 9am
+      timezone: Asia/Seoul
   workflow_dispatch: # Allow manual triggering
 
 concurrency:
