@@ -59,7 +59,7 @@ jobs:
 
       - name: Push generated client code if dependency update
         if: github.event_name == 'pull_request' && steps.generate.outputs.changed == 'true' && startsWith(github.head_ref, 'renovate/org.openapitools-openapi-generator-')
-        uses: iarekylew00t/verified-bot-commit@v2
+        uses: iarekylew00t/verified-bot-commit@33985d44b7719dcaf0b854a0f4b0caad9bdc5b86 # v2.3.3
         with:
           token: ${{ steps.generate-token.outputs.token }}
           ref: ${{ github.head_ref }}
