@@ -105,9 +105,9 @@ jobs:
           FINGERPRINT: "api-drift-detection:HVqRVovW6tqXX4HfQ8LLI9A71JRvnR79"
         run: |
           # Check if issue already exists
-          existing_issue_id="$(gh issue list --search "is:open in:body ${FINGERPRINT}" --json id --jq '.[0].id // empty')"
-          if [ -n "$existing_issue_id" ]; then
-            gh issue comment "$existing_issue_id" --body "API test refresh failed with errors. Please check the [workflow run log](${RUN_URL}) for details and update the API spec as necessary."
+          existing_issue_number="$(gh issue list --search "is:open in:body ${FINGERPRINT}" --json number --jq '.[0].number // empty')"
+          if [ -n "$existing_issue_number" ]; then
+            gh issue comment "$existing_issue_number" --body "API test refresh failed with errors. Please check the [workflow run log](${RUN_URL}) for details and update the API spec as necessary."
             exit 0
           fi
 
