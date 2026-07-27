@@ -78,12 +78,12 @@ jobs:
           ```
 
           <details>
-          <summary>Full diff (first 500 lines)</summary>
+          <summary>Full diff (first 500 lines, excluding recordings)</summary>
 
           ```diff
           STEP_SUMMARY_2
 
-          git --no-pager diff | head --lines=500 >> "$GITHUB_STEP_SUMMARY"
+          git --no-pager diff ':(exclude)tests/__recordings__/**' | head --lines=500 >> "$GITHUB_STEP_SUMMARY"
 
           cat <<'STEP_SUMMARY_3' >> "$GITHUB_STEP_SUMMARY"
           ```
