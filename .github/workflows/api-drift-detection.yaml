@@ -51,10 +51,6 @@ jobs:
           npm run test:type
           echo 'done=true' >> "$GITHUB_OUTPUT"
 
-      - name: Propagate refresh errors
-        if: steps.refresh.outcome == 'failure' && steps.refresh.outputs.done != 'true'
-        run: exit 1
-
       # NOTE: If test have passed, API has not changed but there could be a file changes.
       #       However, the file changes can be ignored because it only consists of changes of changing values such as IDs, timestamps, etc.
       #       It's ideal to implement mitigation for file changes, but I have no idea how should I do it yet
@@ -93,3 +89,7 @@ jobs:
             --title "$TITLE" \
             --body-file "$body_file" \
             --label "$LABELS"
+
+      - name: Propagate refresh errors
+        if: steps.refresh.outcome == 'failure' && steps.refresh.outputs.done != 'true'
+        run: exit 1
