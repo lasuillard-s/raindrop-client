@@ -54,7 +54,7 @@ jobs:
       - name: Leave job summary for changes
         if: steps.refresh.outcome == 'failure' && steps.refresh.outputs.done == 'true'
         run: |
-          cat <<STEP_SUMMARY >> "$GITHUB_STEP_SUMMARY"
+          cat <<'STEP_SUMMARY' >> "$GITHUB_STEP_SUMMARY"
           ## Change Summary
 
           API test refresh failed with the following changes:
