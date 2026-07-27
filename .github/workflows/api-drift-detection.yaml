@@ -43,10 +43,20 @@ jobs:
             echo '$__RAINDROP_CLIENT_TEST_API_TOKEN is not set'
             exit 1
           fi
+
+          # Cleanup existing recordings
           rm --recursive --force ./tests/__recordings__/*
-          npm run test:unit -- --update
-          npm run test:type
+
+          # Run tests
+          test_failed=false
+          npm run test:unit -- --update || test_failed=true
+          npm run test:type || test_failed=true
+
           echo 'done=true' >> "$GITHUB_OUTPUT"
+          if [ "$test_failed" = true ]; then
+            echo 'Test failed'
+            exit 1
+          fi
 
       # NOTE: If test have passed, API has not changed but there could be a file changes.
       #       However, the file changes can be ignored because it only consists of changes of changing values such as IDs, timestamps, etc.
