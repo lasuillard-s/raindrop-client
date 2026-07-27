@@ -76,6 +76,14 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           LABELS: "automated,api-drift"
         run: |
+          # Check if issue already exists
+          issue_count="$(gh issue list --search "in:title ${TITLE}" --json id --jq '. | length')"
+          if [ "$issue_count" -gt 0 ]; then
+            echo 'Issue already exists, skipping issue creation'
+            exit 0
+          fi
+
+          # Create issue
           body_file=/tmp/body.md
           cat <<EOF > "$body_file"
           API test refresh failed with errors. Please check the [workflow run log](${RUN_URL}) for details and update the API spec as necessary.
