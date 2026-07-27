@@ -64,25 +64,32 @@ jobs:
       - name: Leave job summary for changes
         if: steps.refresh.outcome == 'failure' && steps.refresh.outputs.done == 'true'
         run: |
-          diff_stat="$(git --no-pager diff --stat)"
-          diff_full="$(git --no-pager diff)"
-
-          cat <<STEP_SUMMARY >> "$GITHUB_STEP_SUMMARY"
+          cat <<'STEP_SUMMARY_1' >> "$GITHUB_STEP_SUMMARY"
           ## Change Summary
 
           API test refresh failed with the following changes:
 
           ```text
-          ${diff_stat}
+          STEP_SUMMARY_1
+
+          git --no-pager diff --stat >> "$GITHUB_STEP_SUMMARY"
+
+          cat <<'STEP_SUMMARY_2' >> "$GITHUB_STEP_SUMMARY"
           ```
 
           <details>
-          <summary>Full diff</summary>
+          <summary>Full diff (first 500 lines)</summary>
+
           ```diff
-          ${diff_full}
+          STEP_SUMMARY_2
+
+          git --no-pager diff | head --lines=500 >> "$GITHUB_STEP_SUMMARY"
+
+          cat <<'STEP_SUMMARY_3' >> "$GITHUB_STEP_SUMMARY"
           ```
+
           </details>
-          STEP_SUMMARY
+          STEP_SUMMARY_3
 
       - name: Create issue for API drift
         if: steps.refresh.outcome == 'failure' && steps.refresh.outputs.done == 'true'
