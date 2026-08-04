@@ -23,7 +23,7 @@ it("getRootCollections", async ({
 		{
 		  "items": [
 		    {
-		      "_id": 71498480,
+		      "_id": 73607398,
 		      "access": {
 		        "draggable": true,
 		        "for": 2067190,
@@ -33,7 +33,7 @@ it("getRootCollections", async ({
 		      "author": true,
 		      "count": 0,
 		      "cover": [],
-		      "created": "2026-06-01T06:57:31.442Z",
+		      "created": "2026-08-04T00:50:50.616Z",
 		      "creatorRef": {
 		        "_id": 2067190,
 		        "email": "",
@@ -41,8 +41,8 @@ it("getRootCollections", async ({
 		      },
 		      "description": "",
 		      "expanded": true,
-		      "lastAction": "2026-06-01T06:57:31.441Z",
-		      "lastUpdate": "2026-06-01T06:57:31.442Z",
+		      "lastAction": "2026-08-04T00:50:50.616Z",
+		      "lastUpdate": "2026-08-04T00:50:50.616Z",
 		      "parent": null,
 		      "public": false,
 		      "slug": "get-root-collections",
@@ -55,7 +55,7 @@ it("getRootCollections", async ({
 		      "view": "list",
 		    },
 		    {
-		      "_id": 71498481,
+		      "_id": 73607399,
 		      "access": {
 		        "draggable": true,
 		        "for": 2067190,
@@ -65,7 +65,7 @@ it("getRootCollections", async ({
 		      "author": true,
 		      "count": 0,
 		      "cover": [],
-		      "created": "2026-06-01T06:57:31.857Z",
+		      "created": "2026-08-04T00:50:51.038Z",
 		      "creatorRef": {
 		        "_id": 2067190,
 		        "email": "",
@@ -73,8 +73,8 @@ it("getRootCollections", async ({
 		      },
 		      "description": "",
 		      "expanded": true,
-		      "lastAction": "2026-06-01T06:57:31.856Z",
-		      "lastUpdate": "2026-06-01T06:57:31.857Z",
+		      "lastAction": "2026-08-04T00:50:51.037Z",
+		      "lastUpdate": "2026-08-04T00:50:51.038Z",
 		      "parent": null,
 		      "public": false,
 		      "slug": "get-root-collections",
@@ -119,7 +119,7 @@ it("removeCollections", async ({
 	expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "ids": [
-		    71498482,
+		    73607400,
 		  ],
 		  "modified": 1,
 		  "result": true,
@@ -151,7 +151,7 @@ it("getChildCollections", async ({
 		{
 		  "items": [
 		    {
-		      "_id": 71498484,
+		      "_id": 73607401,
 		      "access": {
 		        "draggable": true,
 		        "for": 2067190,
@@ -161,7 +161,7 @@ it("getChildCollections", async ({
 		      "author": true,
 		      "count": 0,
 		      "cover": [],
-		      "created": "2026-06-01T06:57:37.203Z",
+		      "created": "2026-08-04T00:50:56.331Z",
 		      "creatorRef": {
 		        "_id": 2067190,
 		        "email": "",
@@ -169,8 +169,8 @@ it("getChildCollections", async ({
 		      },
 		      "description": "",
 		      "expanded": true,
-		      "lastAction": "2026-06-01T06:57:37.203Z",
-		      "lastUpdate": "2026-06-01T06:57:37.203Z",
+		      "lastAction": "2026-08-04T00:50:56.330Z",
+		      "lastUpdate": "2026-08-04T00:50:56.331Z",
 		      "parent": null,
 		      "public": false,
 		      "slug": "get-child-collections",
@@ -183,7 +183,7 @@ it("getChildCollections", async ({
 		      "view": "list",
 		    },
 		    {
-		      "_id": 71498485,
+		      "_id": 73607402,
 		      "access": {
 		        "draggable": true,
 		        "for": 2067190,
@@ -193,7 +193,7 @@ it("getChildCollections", async ({
 		      "author": true,
 		      "count": 0,
 		      "cover": [],
-		      "created": "2026-06-01T06:57:37.625Z",
+		      "created": "2026-08-04T00:50:56.756Z",
 		      "creatorRef": {
 		        "_id": 2067190,
 		        "email": "",
@@ -201,10 +201,10 @@ it("getChildCollections", async ({
 		      },
 		      "description": "",
 		      "expanded": true,
-		      "lastAction": "2026-06-01T06:57:37.625Z",
-		      "lastUpdate": "2026-06-01T06:57:37.625Z",
+		      "lastAction": "2026-08-04T00:50:56.756Z",
+		      "lastUpdate": "2026-08-04T00:50:56.756Z",
 		      "parent": {
-		        "$id": 71498484,
+		        "$id": 73607401,
 		        "$ref": "collections",
 		      },
 		      "public": false,
@@ -237,7 +237,7 @@ it("getCollection", async ({
 	expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
-		    "_id": 71498486,
+		    "_id": 73607404,
 		    "access": {
 		      "draggable": true,
 		      "for": 2067190,
@@ -247,7 +247,7 @@ it("getCollection", async ({
 		    "author": true,
 		    "count": 0,
 		    "cover": [],
-		    "created": "2026-06-01T06:57:38.482Z",
+		    "created": "2026-08-04T00:50:57.580Z",
 		    "creatorRef": {
 		      "_id": 2067190,
 		      "email": "",
@@ -255,8 +255,8 @@ it("getCollection", async ({
 		    },
 		    "description": "",
 		    "expanded": true,
-		    "lastAction": "2026-06-01T06:57:38.481Z",
-		    "lastUpdate": "2026-06-01T06:57:38.482Z",
+		    "lastAction": "2026-08-04T00:50:57.580Z",
+		    "lastUpdate": "2026-08-04T00:50:57.580Z",
 		    "parent": null,
 		    "public": false,
 		    "slug": "get-collection",
@@ -297,7 +297,7 @@ it("updateCollection", async ({
 	expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
-		    "_id": 71498487,
+		    "_id": 73607405,
 		    "access": {
 		      "draggable": true,
 		      "for": 2067190,
@@ -307,7 +307,7 @@ it("updateCollection", async ({
 		    "author": true,
 		    "count": 0,
 		    "cover": [],
-		    "created": "2026-06-01T06:57:39.231Z",
+		    "created": "2026-08-04T00:50:58.365Z",
 		    "creatorRef": {
 		      "_id": 2067190,
 		      "email": "",
@@ -315,8 +315,8 @@ it("updateCollection", async ({
 		    },
 		    "description": "",
 		    "expanded": true,
-		    "lastAction": "2026-06-01T06:57:39.231Z",
-		    "lastUpdate": "2026-06-01T06:57:39.685Z",
+		    "lastAction": "2026-08-04T00:50:58.365Z",
+		    "lastUpdate": "2026-08-04T00:50:58.825Z",
 		    "parent": null,
 		    "public": true,
 		    "slug": "updated-collection",
@@ -367,7 +367,7 @@ it("createCollection", async ({ client, expect, generateTypeTest }) => {
 		{
 		  "item": {
 		    "__v": 0,
-		    "_id": 71498489,
+		    "_id": 73607408,
 		    "access": {
 		      "draggable": true,
 		      "for": 2067190,
@@ -377,7 +377,7 @@ it("createCollection", async ({ client, expect, generateTypeTest }) => {
 		    "author": true,
 		    "count": 0,
 		    "cover": [],
-		    "created": "2026-06-01T06:57:40.824Z",
+		    "created": "2026-08-04T00:51:00.061Z",
 		    "creatorRef": {
 		      "_id": 2067190,
 		      "email": "",
@@ -385,8 +385,8 @@ it("createCollection", async ({ client, expect, generateTypeTest }) => {
 		    },
 		    "description": "",
 		    "expanded": true,
-		    "lastAction": "2026-06-01T06:57:40.824Z",
-		    "lastUpdate": "2026-06-01T06:57:40.824Z",
+		    "lastAction": "2026-08-04T00:51:00.060Z",
+		    "lastUpdate": "2026-08-04T00:51:00.061Z",
 		    "parent": null,
 		    "public": false,
 		    "slug": "create-collection-test",
@@ -428,7 +428,7 @@ it("uploadCollectionCover", async ({
 		{
 		  "item": {
 		    "__v": 1,
-		    "_id": 71498490,
+		    "_id": 73607409,
 		    "access": {
 		      "draggable": true,
 		      "for": 2067190,
@@ -438,9 +438,9 @@ it("uploadCollectionCover", async ({
 		    "author": true,
 		    "count": 0,
 		    "cover": [
-		      "https://up.raindrop.io/collection/thumbs/714/984/90/1780297061755.png",
+		      "https://up.raindrop.io/collection/thumbs/736/074/09/1785804661102.png",
 		    ],
-		    "created": "2026-06-01T06:57:41.240Z",
+		    "created": "2026-08-04T00:51:00.527Z",
 		    "creatorRef": {
 		      "_id": 2067190,
 		      "email": "",
@@ -448,8 +448,8 @@ it("uploadCollectionCover", async ({
 		    },
 		    "description": "",
 		    "expanded": true,
-		    "lastAction": "2026-06-01T06:57:41.240Z",
-		    "lastUpdate": "2026-06-01T06:57:42.657Z",
+		    "lastAction": "2026-08-04T00:51:00.527Z",
+		    "lastUpdate": "2026-08-04T00:51:01.540Z",
 		    "parent": null,
 		    "public": false,
 		    "slug": "upload-collection-cover",
@@ -485,8 +485,8 @@ it("mergeCollections", async ({
 	expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "ids": [
-		    71498492,
-		    71498493,
+		    73607410,
+		    73607411,
 		  ],
 		  "modified": 2,
 		  "result": true,
@@ -543,7 +543,7 @@ it("getSystemCollectionStats", async ({ client, expect, generateTypeTest }) => {
 		  ],
 		  "meta": {
 		    "_id": 2067190,
-		    "changedBookmarksDate": "2026-06-01T06:57:45.488Z",
+		    "changedBookmarksDate": "2026-08-04T00:51:04.276Z",
 		    "pro": false,
 		  },
 		  "result": true,
@@ -572,7 +572,7 @@ it("shareCollection", async ({
 	generateTypeTest({ type: "ShareCollectionResponse" });
 	expect(response.data).toMatchInlineSnapshot(`
 		{
-		  "link": "https://app.raindrop.io/join/2c52a2c7-0e84-4b35-a926-21ecd63ec805",
+		  "link": "https://app.raindrop.io/join/ca79c323-4d00-45ca-a84e-f509ce413242",
 		  "result": true,
 		  "token": "<REDACTED>",
 		}

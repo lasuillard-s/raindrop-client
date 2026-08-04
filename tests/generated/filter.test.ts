@@ -19,7 +19,7 @@ it("getFilters", async ({
 		  "collectionId": 0,
 		  "created": [
 		    {
-		      "_id": "2026-06",
+		      "_id": "2026-08",
 		      "count": 3,
 		    },
 		  ],

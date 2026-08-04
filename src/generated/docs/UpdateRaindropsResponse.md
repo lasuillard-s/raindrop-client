@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **result** | **boolean** |  | [optional] [default to undefined]
 **modified** | **number** |  | [optional] [default to undefined]
+**matched** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -16,6 +17,7 @@ import { UpdateRaindropsResponse } from './api';
 const instance: UpdateRaindropsResponse = {
     result,
     modified,
+    matched,
 };
 ```
 

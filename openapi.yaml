@@ -1902,7 +1902,7 @@ components:
         important:
           type: boolean
         highlights:
-          type: array  # It should be always an empty array for imported bookmarks
+          type: array # It should be always an empty array for imported bookmarks
 
     CreateRaindropRequest:
       type: object
@@ -2677,6 +2677,8 @@ components:
           type: boolean
         modified:
           type: integer
+        matched:
+          type: integer
 
     RemoveRaindropsRequest:
       type: object
@@ -2693,6 +2695,8 @@ components:
         result:
           type: boolean
         modified:
+          type: integer
+        matched:
           type: integer
 
     CreateRaindropsRequest:

@@ -11,7 +11,7 @@ it("getSystemCollectionStats", () => {
 		],
 		meta: {
 			_id: 2067190,
-			changedBookmarksDate: "2026-06-01T06:57:45.488Z",
+			changedBookmarksDate: "2026-08-04T00:51:04.276Z",
 			pro: false,
 		},
 	});

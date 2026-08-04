@@ -28,8 +28,8 @@ it("importHTMLBookmarkFile", () => {
 			},
 			{
 				title: "Import",
-				created: "2026-06-01T06:58:17.446Z",
-				lastUpdate: "2026-06-01T06:58:17.446Z",
+				created: "2026-08-04T00:51:40.309Z",
+				lastUpdate: "2026-08-04T00:51:40.309Z",
 				folders: [],
 				bookmarks: [
 					{

@@ -41,13 +41,13 @@ it("checkURLsExist", async ({
 		{
 		  "duplicates": [
 		    {
-		      "_id": 1740426332,
+		      "_id": 1809460511,
 		      "link": "https://raindrop.com",
 		    },
 		  ],
-		  "id": 1740426332,
+		  "id": 1809460511,
 		  "ids": [
-		    1740426332,
+		    1809460511,
 		  ],
 		  "result": true,
 		}
@@ -194,9 +194,9 @@ it("importHTMLBookmarkFile", async ({ client, expect, generateTypeTest }) => {
 		          "title": "Docker Hub",
 		        },
 		      ],
-		      "created": "2026-06-01T06:58:17.446Z",
+		      "created": "2026-08-04T00:51:40.309Z",
 		      "folders": [],
-		      "lastUpdate": "2026-06-01T06:58:17.446Z",
+		      "lastUpdate": "2026-08-04T00:51:40.309Z",
 		      "title": "Import",
 		    },
 		  ],

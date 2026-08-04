@@ -7,9 +7,9 @@ it("updateCurrentUser", () => {
 		user: {
 			tfa: { enabled: false },
 			files: {
-				used: 111258,
+				used: 0,
 				size: 100000000,
-				lastCheckPoint: "2026-05-15T02:00:34.506Z",
+				lastCheckPoint: "2026-07-27T02:36:16.268Z",
 			},
 			_id: 2067190,
 			fullName: "miyil99106",
@@ -20,10 +20,10 @@ it("updateCurrentUser", () => {
 			groups: [
 				{ title: "raindrop-client", hidden: false, sort: 0, collections: [] },
 			],
-			lastAction: "2026-06-01T06:58:11.773Z",
-			lastVisit: "2026-06-01T02:28:50.392Z",
+			lastAction: "2026-08-04T00:51:39.326Z",
+			lastVisit: "2026-08-04T00:44:09.054Z",
 			registered: "2024-04-21T06:46:01.480Z",
-			lastUpdate: "2026-06-01T06:58:11.774Z",
+			lastUpdate: "2026-08-04T00:51:39.326Z",
 			config: {
 				default_collection_view: "list",
 				raindrops_hide: [
@@ -52,9 +52,9 @@ it("updateCurrentUser", () => {
 		item: {
 			tfa: { enabled: false },
 			files: {
-				used: 111258,
+				used: 0,
 				size: 100000000,
-				lastCheckPoint: "2026-05-15T02:00:34.506Z",
+				lastCheckPoint: "2026-07-27T02:36:16.268Z",
 			},
 			_id: 2067190,
 			fullName: "miyil99106",
@@ -65,10 +65,10 @@ it("updateCurrentUser", () => {
 			groups: [
 				{ title: "raindrop-client", hidden: false, sort: 0, collections: [] },
 			],
-			lastAction: "2026-06-01T06:58:11.773Z",
-			lastVisit: "2026-06-01T02:28:50.392Z",
+			lastAction: "2026-08-04T00:51:39.326Z",
+			lastVisit: "2026-08-04T00:44:09.054Z",
 			registered: "2024-04-21T06:46:01.480Z",
-			lastUpdate: "2026-06-01T06:58:11.774Z",
+			lastUpdate: "2026-08-04T00:51:39.326Z",
 			config: {
 				default_collection_view: "list",
 				raindrops_hide: [
