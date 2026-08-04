@@ -9,7 +9,7 @@ it("getFilters", () => {
 			{ _id: "getFilters-2", count: 1 },
 		],
 		types: [{ _id: "link", count: 3 }],
-		created: [{ _id: "2026-06", count: 3 }],
+		created: [{ _id: "2026-08", count: 3 }],
 		total: { count: 3 },
 		notag: { count: 2 },
 		important: { count: 1 },

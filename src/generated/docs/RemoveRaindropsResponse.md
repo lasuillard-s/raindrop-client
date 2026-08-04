@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **result** | **boolean** |  | [default to undefined]
 **modified** | **number** |  | [default to undefined]
+**matched** | **number** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -16,6 +17,7 @@ import { RemoveRaindropsResponse } from './api';
 const instance: RemoveRaindropsResponse = {
     result,
     modified,
+    matched,
 };
 ```
 

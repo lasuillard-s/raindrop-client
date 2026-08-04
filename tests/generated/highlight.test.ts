@@ -23,11 +23,11 @@ it("getAllHighlights", async ({
 		  "count": 1,
 		  "items": [
 		    {
-		      "_id": "6a1d2d828e39dc469704b1e0",
-		      "created": "2026-06-01T06:58:10.596Z",
+		      "_id": "6a71378c6fae3e83cf626adc",
+		      "created": "2026-08-04T00:51:24.097Z",
 		      "link": "https://raindrop.io",
 		      "note": "",
-		      "raindropRef": 1740426258,
+		      "raindropRef": 1809459646,
 		      "tags": [],
 		      "text": "ignore",
 		      "title": "getAllHighlights",
@@ -65,11 +65,11 @@ it("getHighlightsInCollection", async ({
 		  "count": 1,
 		  "items": [
 		    {
-		      "_id": "6a1d2d835e7011229703661e",
-		      "created": "2026-06-01T06:58:11.727Z",
+		      "_id": "6a71378dac9e1cc6f4344211",
+		      "created": "2026-08-04T00:51:25.301Z",
 		      "link": "https://raindrop.io",
 		      "note": "",
-		      "raindropRef": 1740426275,
+		      "raindropRef": 1809459960,
 		      "tags": [],
 		      "text": "ignore",
 		      "title": "getHighlightsInCollection",

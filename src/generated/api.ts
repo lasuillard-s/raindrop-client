@@ -492,6 +492,7 @@ export interface RemoveRaindropsRequest {
 export interface RemoveRaindropsResponse {
     'result': boolean;
     'modified': number;
+    'matched'?: number;
 }
 export interface RemoveTagsFromCollectionRequest {
     'tags'?: Array<string>;
@@ -644,6 +645,7 @@ export interface UpdateRaindropsRequestCollection {
 export interface UpdateRaindropsResponse {
     'result'?: boolean;
     'modified'?: number;
+    'matched'?: number;
 }
 export interface UploadCollectionCoverResponse {
     'result': boolean;
