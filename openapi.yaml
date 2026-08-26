@@ -62,7 +62,6 @@ paths:
       operationId: authorize
       tags:
         - authentication
-      # checkov:skip=CKV_OPENAPI_5:Auth endpoint open to unauthorized users
       security: []
       parameters:
         - name: redirect_uri
@@ -104,7 +103,6 @@ paths:
                   client_id: 5e1c589cf6f48c0211311383
                   client_secret: c3363988-9d27-4bc6-a0ae-d126ce78dc09
                   grant_type: refresh_token
-                  # checkov:skip=CKV_SECRET_6:Just an example secrets
                   refresh_token: c8080368-fad2-4a9f-b2c9-73d3z850111b
       responses:
         200:
@@ -159,7 +157,6 @@ paths:
             schema:
               type: object
               properties:
-                # checkov:skip=CKV_OPENAPI_21:Source documentation does not provide max item detail
                 ids:
                   type: array
                   items:
@@ -1033,7 +1030,6 @@ paths:
                 $ref: "#/components/schemas/ImportHTMLBookmarkFileResponse"
 components:
   securitySchemes:
-    # checkov:skip=CKV_OPENAPI_3:FIXME
     bearerAuth:
       type: http
       scheme: bearer
@@ -1236,7 +1232,6 @@ components:
         emailConfirmed:
           type: boolean
 
-    # TODO: Re-declare schema per API responses rather than making it reusable
     UserRef:
       type: object
       required: [$id, $ref]
