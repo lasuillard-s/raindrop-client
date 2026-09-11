@@ -44,7 +44,7 @@ describe("auth.exchangeToken", () => {
 		expect(response.data).toEqual(tokenResponse);
 	});
 
-	it("incorrect authorization code", ({ mockAxios, client }) => {
+	it("incorrect authorization code", async ({ mockAxios, client }) => {
 		mockAxios
 			.onPost("https://api.raindrop.io/v1/oauth/access_token")
 			.reply((config) => {
@@ -64,17 +64,20 @@ describe("auth.exchangeToken", () => {
 					},
 				];
 			});
-		expect(
+		await expect(
 			client.auth.exchangeToken({
 				client_id,
 				client_secret,
 				redirect_uri,
 				code,
 			}),
-		).rejects.toThrowError(/^Request failed with error: .+$/);
+		).rejects.toThrow(/^Request failed with error: .+$/);
 	});
 
-	it("client id or client secret is not valid", ({ mockAxios, client }) => {
+	it("client id or client secret is not valid", async ({
+		mockAxios,
+		client,
+	}) => {
 		mockAxios
 			.onPost("https://api.raindrop.io/v1/oauth/access_token")
 			.reply((config) => {
@@ -94,14 +97,14 @@ describe("auth.exchangeToken", () => {
 					},
 				];
 			});
-		expect(
+		await expect(
 			client.auth.exchangeToken({
 				client_id,
 				client_secret,
 				redirect_uri,
 				code,
 			}),
-		).rejects.toThrowError(/^Request failed with error: .+$/);
+		).rejects.toThrow(/^Request failed with error: .+$/);
 	});
 });
 
@@ -128,7 +131,7 @@ describe("auth.refreshToken", () => {
 		expect(response.data).toEqual(tokenResponse);
 	});
 
-	it("incorrect refresh token", ({ mockAxios, client }) => {
+	it("incorrect refresh token", async ({ mockAxios, client }) => {
 		mockAxios
 			.onPost("https://api.raindrop.io/v1/oauth/access_token")
 			.reply((config) => {
@@ -147,8 +150,8 @@ describe("auth.refreshToken", () => {
 					},
 				];
 			});
-		expect(
+		await expect(
 			client.auth.refreshToken({ client_id, client_secret, refresh_token }),
-		).rejects.toThrowError(/^Request failed with error: .+$/);
+		).rejects.toThrow(/^Request failed with error: .+$/);
 	});
 });
