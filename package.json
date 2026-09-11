@@ -82,7 +82,7 @@
 		"@types/node": "25.9.5",
 		"@vitest/coverage-v8": "4.1.11",
 		"@vitest/ui": "4.1.11",
-		"axios": "1.20.0",
+		"axios": "1.18.1",
 		"axios-mock-adapter": "2.1.0",
 		"axios-rate-limit": "1.9.0",
 		"http-server": "14.1.1",
