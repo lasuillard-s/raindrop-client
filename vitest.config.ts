@@ -11,6 +11,7 @@ export default defineConfig({
 			oidc: {
 				useGitHubOIDC: true,
 			},
+			telemetry: false,
 		}),
 	],
 	test: {
