@@ -73,7 +73,7 @@
 		}
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.5",
+		"@biomejs/biome": "2.5.12",
 		"@codecov/vite-plugin": "2.0.1",
 		"@openapitools/openapi-generator-cli": "2.41.0",
 		"@pollyjs/adapter-node-http": "6.0.6",
