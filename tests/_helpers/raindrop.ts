@@ -1,4 +1,4 @@
-import type { Task, Use } from "@vitest/runner";
+import type { RunnerTask } from "vitest";
 import type { Raindrop } from "~/client";
 import type {
 	CreateCollectionRequest,
@@ -7,6 +7,8 @@ import type {
 	CreateRaindropResponse,
 } from "~/generated";
 import { sleep } from "./utils";
+
+type Use<T> = (resource: T) => Promise<void>;
 
 export async function resetData(
 	{ client }: { client: Raindrop },
@@ -30,7 +32,7 @@ export async function resetData(
 
 // Shortcut for setup utilities
 export async function setupTools(
-	{ task, client }: { task: Task; client: Raindrop },
+	{ task, client }: { task: RunnerTask; client: Raindrop },
 	use: Use<SetupTools>,
 ) {
 	const setupTool = new SetupTools(task, client);
@@ -38,10 +40,10 @@ export async function setupTools(
 }
 
 export class SetupTools {
-	task: Task;
+	task: RunnerTask;
 	client: Raindrop;
 
-	constructor(task: Task, client: Raindrop) {
+	constructor(task: RunnerTask, client: Raindrop) {
 		this.task = task;
 		this.client = client;
 	}

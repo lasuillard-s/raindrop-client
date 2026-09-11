@@ -80,8 +80,8 @@
 		"@pollyjs/core": "6.0.6",
 		"@pollyjs/persister-fs": "6.0.6",
 		"@types/node": "25.9.5",
-		"@vitest/coverage-v8": "4.1.10",
-		"@vitest/ui": "4.1.10",
+		"@vitest/coverage-v8": "5.0.0",
+		"@vitest/ui": "5.0.0",
 		"axios": "1.18.1",
 		"axios-mock-adapter": "2.1.0",
 		"axios-rate-limit": "1.9.0",
@@ -93,6 +93,6 @@
 		"typedoc-plugin-missing-exports": "4.1.4",
 		"typescript": "6.0.3",
 		"vite-tsconfig-paths": "6.1.1",
-		"vitest": "4.1.10"
+		"vitest": "5.0.0"
 	}
 }

@@ -1,13 +1,15 @@
 import NodeHTTPAdapter from "@pollyjs/adapter-node-http";
 import { Polly } from "@pollyjs/core";
 import FSPersister from "@pollyjs/persister-fs";
-import type { Task, Use } from "@vitest/runner";
+import type { RunnerTask } from "vitest";
 import { taskId } from "./common";
+
+type Use<T> = (resource: T) => Promise<void>;
 
 Polly.register(NodeHTTPAdapter);
 Polly.register(FSPersister);
 
-export async function polly({ task }: { task: Task }, use: Use<Polly>) {
+export async function polly({ task }: { task: RunnerTask }, use: Use<Polly>) {
 	const _polly = new Polly(taskId(task), {
 		adapters: ["node-http"],
 		persister: "fs",

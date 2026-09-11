@@ -1,9 +1,10 @@
 import { Configuration } from "^/src/generated";
-import type { Use } from "@vitest/runner";
 import axios, { type AxiosInstance } from "axios";
 import MockAdapter from "axios-mock-adapter";
 import rateLimit from "axios-rate-limit";
 import { Raindrop } from "~/client";
+
+type Use<T> = (resource: T) => Promise<void>;
 
 // biome-ignore lint/correctness/noEmptyPattern: PASS
 export async function axiosInstance({}, use: Use<AxiosInstance>) {
