@@ -1,5 +1,6 @@
 .devcontainer
 .vscode
+.vitest
 typedoc
 junit.xml
 typecheck.junit.xml

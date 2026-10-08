@@ -23,7 +23,7 @@ export default defineConfig({
 		testTimeout: 10_000,
 		include: ["tests/**/*.{test,spec}.{js,ts}"],
 		exclude: ["tests/__typechecks__/*", "**/__mocks__/*"],
-		reporters: ["default", "junit"],
+		reporters: ["default", "junit", "html"],
 		// NOTE: outputFile should passed to CLI to avoid report being overwritten
 		coverage: {
 			include: ["src/**"],
