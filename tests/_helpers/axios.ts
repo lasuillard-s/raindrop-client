@@ -8,43 +8,43 @@ type Use<T> = (resource: T) => Promise<void>;
 
 // biome-ignore lint/correctness/noEmptyPattern: PASS
 export async function axiosInstance({}, use: Use<AxiosInstance>) {
-	const instance = axios.create({
-		validateStatus: () => true,
-	});
-	instance.interceptors.response.use((response) => {
-		const { method, path } = response.request;
-		if (
-			method === "POST" &&
-			/^\/rest\/v1\/collection\/.+\/sharing$/.test(path)
-		) {
-			response.data.token = "<REDACTED>";
-		}
-		return response;
-	});
-	const rateLimited = rateLimit(instance, { maxRPS: 5 });
-	await use(rateLimited);
+  const instance = axios.create({
+    validateStatus: () => true,
+  });
+  instance.interceptors.response.use((response) => {
+    const { method, path } = response.request;
+    if (
+      method === "POST" &&
+      /^\/rest\/v1\/collection\/.+\/sharing$/.test(path)
+    ) {
+      response.data.token = "<REDACTED>";
+    }
+    return response;
+  });
+  const rateLimited = rateLimit(instance, { maxRPS: 5 });
+  await use(rateLimited);
 }
 
 export async function mockAxios(
-	{ axiosInstance }: { axiosInstance: AxiosInstance },
-	use: Use<MockAdapter>,
+  { axiosInstance }: { axiosInstance: AxiosInstance },
+  use: Use<MockAdapter>,
 ) {
-	const mockAxios = new MockAdapter(axiosInstance, {
-		onNoMatch: "throwException",
-	});
-	await use(mockAxios);
-	mockAxios.resetHandlers();
-	mockAxios.resetHistory();
+  const mockAxios = new MockAdapter(axiosInstance, {
+    onNoMatch: "throwException",
+  });
+  await use(mockAxios);
+  mockAxios.resetHandlers();
+  mockAxios.resetHistory();
 }
 
 export async function client(
-	{ axiosInstance }: { axiosInstance: AxiosInstance },
-	use: Use<Raindrop>,
+  { axiosInstance }: { axiosInstance: AxiosInstance },
+  use: Use<Raindrop>,
 ) {
-	const accessToken = process.env.__RAINDROP_CLIENT_TEST_API_TOKEN;
-	const client = new Raindrop(
-		new Configuration({ accessToken }),
-		axiosInstance,
-	);
-	await use(client);
+  const accessToken = process.env.__RAINDROP_CLIENT_TEST_API_TOKEN;
+  const client = new Raindrop(
+    new Configuration({ accessToken }),
+    axiosInstance,
+  );
+  await use(client);
 }

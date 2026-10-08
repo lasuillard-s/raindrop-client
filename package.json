@@ -1,98 +1,98 @@
 {
-	"name": "@lasuillard/raindrop-client",
-	"version": "0.9.2",
-	"publishConfig": {
-		"access": "public"
-	},
-	"description": "An Axios client for Raindrop.io, generated with OpenAPI Generator.",
-	"keywords": [
-		"raindrop.io",
-		"axios",
-		"openapi"
-	],
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/lasuillard-s/raindrop-client.git"
-	},
-	"author": {
-		"name": "Yuchan Lee",
-		"url": "https://github.com/lasuillard",
-		"email": "lasuillard@gmail.com"
-	},
-	"homepage": "https://github.com/lasuillard-s/raindrop-client",
-	"bugs": {
-		"url": "https://github.com/lasuillard-s/raindrop-client/issues"
-	},
-	"files": [
-		"dist/",
-		"README.md",
-		"LICENSE"
-	],
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
-	"exports": {
-		".": {
-			"types": {
-				"import": "./dist/index.d.mts",
-				"require": "./dist/index.d.ts"
-			},
-			"source": "./src/index.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.js"
-		}
-	},
-	"scripts": {
-		"generate": "openapi-generator-cli generate --input-spec openapi.yaml --generator-name typescript-axios --output ./src/generated/ --skip-validate-spec --additional-properties enumPropertyNamingReplaceSpecialChar=true",
-		"dev": "vite",
-		"build": "tsup",
-		"fmt": "biome format --write .",
-		"fmt:check": "biome format .",
-		"lint": "biome lint .",
-		"lint:fix": "biome lint --fix .",
-		"typecheck": "tsc --noEmit",
-		"test": "npm run test:unit && npm run test:type",
-		"test:unit": "vitest --coverage --run --outputFile.junit=./junit.xml",
-		"test:type": "vitest --typecheck.only --run --outputFile.junit=./typecheck.junit.xml",
-		"make-docs": "typedoc --plugin typedoc-plugin-missing-exports --out ./typedoc src"
-	},
-	"peerDependencies": {
-		"axios": "1.*"
-	},
-	"devEngines": {
-		"runtime": {
-			"name": "node",
-			"version": ">=24",
-			"onFail": "error"
-		},
-		"packageManager": {
-			"name": "npm",
-			"version": ">=11",
-			"onFail": "error"
-		}
-	},
-	"devDependencies": {
-		"@biomejs/biome": "2.5.15",
-		"@codecov/vite-plugin": "2.0.1",
-		"@openapitools/openapi-generator-cli": "2.41.0",
-		"@pollyjs/adapter-node-http": "6.0.6",
-		"@pollyjs/core": "6.0.6",
-		"@pollyjs/persister-fs": "6.0.6",
-		"@types/node": "25.9.9",
-		"@vitest/coverage-v8": "5.0.3",
-		"@vitest/ui": "5.0.3",
-		"axios": "1.20.0",
-		"axios-mock-adapter": "2.1.0",
-		"axios-rate-limit": "1.9.0",
-		"http-server": "14.1.1",
-		"slugify": "1.6.9",
-		"tslib": "2.8.1",
-		"tsup": "8.5.1",
-		"typedoc": "0.28.20",
-		"typedoc-plugin-missing-exports": "4.1.4",
-		"typescript": "6.0.3",
-		"vite-tsconfig-paths": "6.1.1",
-		"vitest": "5.0.3"
-	}
+  "name": "@lasuillard/raindrop-client",
+  "version": "0.9.2",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "An Axios client for Raindrop.io, generated with OpenAPI Generator.",
+  "keywords": [
+    "raindrop.io",
+    "axios",
+    "openapi"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lasuillard-s/raindrop-client.git"
+  },
+  "author": {
+    "name": "Yuchan Lee",
+    "url": "https://github.com/lasuillard",
+    "email": "lasuillard@gmail.com"
+  },
+  "homepage": "https://github.com/lasuillard-s/raindrop-client",
+  "bugs": {
+    "url": "https://github.com/lasuillard-s/raindrop-client/issues"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.mts",
+        "require": "./dist/index.d.ts"
+      },
+      "source": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "generate": "openapi-generator-cli generate --input-spec openapi.yaml --generator-name typescript-axios --output ./src/generated/ --skip-validate-spec --additional-properties enumPropertyNamingReplaceSpecialChar=true",
+    "dev": "vite",
+    "build": "tsup",
+    "fmt": "biome format --write .",
+    "fmt:check": "biome format .",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --fix .",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run test:unit && npm run test:type",
+    "test:unit": "vitest --coverage --run --outputFile.junit=./junit.xml",
+    "test:type": "vitest --typecheck.only --run --outputFile.junit=./typecheck.junit.xml",
+    "make-docs": "typedoc --plugin typedoc-plugin-missing-exports --out ./typedoc src"
+  },
+  "peerDependencies": {
+    "axios": "1.*"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": ">=24",
+      "onFail": "error"
+    },
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11",
+      "onFail": "error"
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15",
+    "@codecov/vite-plugin": "2.0.1",
+    "@openapitools/openapi-generator-cli": "2.41.0",
+    "@pollyjs/adapter-node-http": "6.0.6",
+    "@pollyjs/core": "6.0.6",
+    "@pollyjs/persister-fs": "6.0.6",
+    "@types/node": "25.9.9",
+    "@vitest/coverage-v8": "5.0.3",
+    "@vitest/ui": "5.0.3",
+    "axios": "1.20.0",
+    "axios-mock-adapter": "2.1.0",
+    "axios-rate-limit": "1.9.0",
+    "http-server": "14.1.1",
+    "slugify": "1.6.9",
+    "tslib": "2.8.1",
+    "tsup": "8.5.1",
+    "typedoc": "0.28.20",
+    "typedoc-plugin-missing-exports": "4.1.4",
+    "typescript": "6.0.3",
+    "vite-tsconfig-paths": "6.1.1",
+    "vitest": "5.0.3"
+  }
 }

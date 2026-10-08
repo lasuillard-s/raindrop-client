@@ -3,23 +3,23 @@ import fs from "node:fs";
 import path from "node:path";
 
 it("getRootCollections", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
-	resetData: _,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
+  resetData: _,
 }) => {
-	await setupTools.createCollection();
-	await setupTools.createCollection({
-		cover: [
-			"https://png.pngtree.com/png-vector/20221217/ourmid/pngtree-example-sample-grungy-stamp-vector-png-image_15560590.png",
-		],
-	});
+  await setupTools.createCollection();
+  await setupTools.createCollection({
+    cover: [
+      "https://png.pngtree.com/png-vector/20221217/ourmid/pngtree-example-sample-grungy-stamp-vector-png-image_15560590.png",
+    ],
+  });
 
-	const response = await client.collection.getRootCollections();
+  const response = await client.collection.getRootCollections();
 
-	generateTypeTest({ type: "GetRootCollectionsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetRootCollectionsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "items": [
 		    {
@@ -93,10 +93,10 @@ it("getRootCollections", async ({
 });
 
 it("reorderAllCollections", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.collection.reorderAllCollections();
+  const response = await client.collection.reorderAllCollections();
 
-	generateTypeTest({ type: "SimpleResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "SimpleResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "result": true,
 		}
@@ -104,19 +104,19 @@ it("reorderAllCollections", async ({ client, expect, generateTypeTest }) => {
 });
 
 it("removeCollections", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const collection = await setupTools.createCollection();
+  const collection = await setupTools.createCollection();
 
-	const response = await client.collection.removeCollections({
-		ids: [collection.item._id],
-	});
+  const response = await client.collection.removeCollections({
+    ids: [collection.item._id],
+  });
 
-	generateTypeTest({ type: "RemoveCollectionsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "RemoveCollectionsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "ids": [
 		    73607400,
@@ -128,26 +128,26 @@ it("removeCollections", async ({
 });
 
 it("getChildCollections", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
-	resetData: _,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
+  resetData: _,
 }) => {
-	const parent = await setupTools.createCollection();
-	await setupTools.createCollection({
-		parent: {
-			$ref: "collections",
-			$id: parent.item._id,
-			oid: 0,
-		},
-	});
+  const parent = await setupTools.createCollection();
+  await setupTools.createCollection({
+    parent: {
+      $ref: "collections",
+      $id: parent.item._id,
+      oid: 0,
+    },
+  });
 
-	const response = await client.collection.getChildCollections();
+  const response = await client.collection.getChildCollections();
 
-	generateTypeTest({ type: "GetChildCollectionsResponse" });
-	expect(response.data.items.length).toBe(2);
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetChildCollectionsResponse" });
+  expect(response.data.items.length).toBe(2);
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "items": [
 		    {
@@ -224,17 +224,17 @@ it("getChildCollections", async ({
 });
 
 it("getCollection", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const collection = await setupTools.createCollection();
+  const collection = await setupTools.createCollection();
 
-	const response = await client.collection.getCollection(collection.item._id);
+  const response = await client.collection.getCollection(collection.item._id);
 
-	generateTypeTest({ type: "GetCollectionResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetCollectionResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "_id": 73607404,
@@ -274,27 +274,27 @@ it("getCollection", async ({
 });
 
 it("updateCollection", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const collection = await setupTools.createCollection();
+  const collection = await setupTools.createCollection();
 
-	const response = await client.collection.updateCollection(
-		collection.item._id,
-		{
-			title: "updatedCollection",
-			cover: [],
-			view: "list",
-			sort: 0,
-			public: true,
-			expanded: true,
-		},
-	);
+  const response = await client.collection.updateCollection(
+    collection.item._id,
+    {
+      title: "updatedCollection",
+      cover: [],
+      view: "list",
+      sort: 0,
+      public: true,
+      expanded: true,
+    },
+  );
 
-	generateTypeTest({ type: "UpdateCollectionResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "UpdateCollectionResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "_id": 73607405,
@@ -334,19 +334,19 @@ it("updateCollection", async ({
 });
 
 it("removeCollection", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const collection = await setupTools.createCollection();
+  const collection = await setupTools.createCollection();
 
-	const response = await client.collection.removeCollection(
-		collection.item._id,
-	);
+  const response = await client.collection.removeCollection(
+    collection.item._id,
+  );
 
-	generateTypeTest({ type: "SimpleResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "SimpleResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "result": true,
 		}
@@ -354,16 +354,16 @@ it("removeCollection", async ({
 });
 
 it("createCollection", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.collection.createCollection({
-		view: "list",
-		title: "createCollectionTest",
-		sort: 0,
-		public: true,
-		cover: [],
-	});
+  const response = await client.collection.createCollection({
+    view: "list",
+    title: "createCollectionTest",
+    sort: 0,
+    public: true,
+    cover: [],
+  });
 
-	generateTypeTest({ type: "CreateCollectionResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "CreateCollectionResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "__v": 0,
@@ -404,27 +404,27 @@ it("createCollection", async ({ client, expect, generateTypeTest }) => {
 });
 
 it("uploadCollectionCover", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const collection = await setupTools.createCollection();
-	const coverBlob = await fs.openAsBlob(path.join(__dirname, "./cover.png"));
-	const cover = new File([coverBlob], "cover.png", { type: "image/png" });
+  const collection = await setupTools.createCollection();
+  const coverBlob = await fs.openAsBlob(path.join(__dirname, "./cover.png"));
+  const cover = new File([coverBlob], "cover.png", { type: "image/png" });
 
-	const response = await client.collection.uploadCollectionCover(
-		collection.item._id,
-		cover,
-		{
-			headers: {
-				"Content-Type": "multipart/form-data; boundary=0000000000",
-			},
-		},
-	);
+  const response = await client.collection.uploadCollectionCover(
+    collection.item._id,
+    cover,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data; boundary=0000000000",
+      },
+    },
+  );
 
-	generateTypeTest({ type: "UploadCollectionCoverResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "UploadCollectionCoverResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "__v": 1,
@@ -467,22 +467,22 @@ it("uploadCollectionCover", async ({
 });
 
 it("mergeCollections", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const one = await setupTools.createCollection();
-	const two = await setupTools.createCollection();
-	const three = await setupTools.createCollection();
+  const one = await setupTools.createCollection();
+  const two = await setupTools.createCollection();
+  const three = await setupTools.createCollection();
 
-	const response = await client.collection.mergeCollections({
-		ids: [one.item._id, two.item._id],
-		to: three.item._id,
-	});
+  const response = await client.collection.mergeCollections({
+    ids: [one.item._id, two.item._id],
+    to: three.item._id,
+  });
 
-	generateTypeTest({ type: "MergeCollectionsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "MergeCollectionsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "ids": [
 		    73607410,
@@ -495,14 +495,14 @@ it("mergeCollections", async ({
 });
 
 it("removeAllEmptyCollections", async ({
-	client,
-	expect,
-	generateTypeTest,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const response = await client.collection.removeAllEmptyCollections();
+  const response = await client.collection.removeAllEmptyCollections();
 
-	generateTypeTest({ type: "RemoveAllEmptyCollectionsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "RemoveAllEmptyCollectionsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "count": 7,
 		  "result": true,
@@ -511,10 +511,10 @@ it("removeAllEmptyCollections", async ({
 });
 
 it("emptyTrash", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.collection.emptyTrash();
+  const response = await client.collection.emptyTrash();
 
-	generateTypeTest({ type: "SimpleResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "SimpleResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "result": true,
 		}
@@ -522,10 +522,10 @@ it("emptyTrash", async ({ client, expect, generateTypeTest }) => {
 });
 
 it("getSystemCollectionStats", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.collection.getSystemCollectionStats();
+  const response = await client.collection.getSystemCollectionStats();
 
-	generateTypeTest({ type: "GetSystemCollectionStatsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetSystemCollectionStatsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "items": [
 		    {
@@ -554,23 +554,23 @@ it("getSystemCollectionStats", async ({ client, expect, generateTypeTest }) => {
 it.skip("getCollaborators");
 
 it("shareCollection", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const collection = await setupTools.createCollection();
+  const collection = await setupTools.createCollection();
 
-	const response = await client.collection.shareCollection(
-		collection.item._id,
-		{
-			emails: ["example@example.com"],
-			role: "viewer",
-		},
-	);
+  const response = await client.collection.shareCollection(
+    collection.item._id,
+    {
+      emails: ["example@example.com"],
+      role: "viewer",
+    },
+  );
 
-	generateTypeTest({ type: "ShareCollectionResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "ShareCollectionResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "link": "https://app.raindrop.io/join/ca79c323-4d00-45ca-a84e-f509ce413242",
 		  "result": true,
@@ -585,10 +585,10 @@ it.skip("deleteCollaborator");
 it.skip("acceptInvitation");
 
 it("searchCovers", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.collection.searchCovers("strawberry");
+  const response = await client.collection.searchCovers("strawberry");
 
-	generateTypeTest({ type: "SearchCoversResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "SearchCoversResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "items": [
 		    {
@@ -618,8 +618,8 @@ it("searchCovers", async ({ client, expect, generateTypeTest }) => {
 });
 
 it("getFeaturedCovers", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.collection.getFeaturedCovers();
+  const response = await client.collection.getFeaturedCovers();
 
-	generateTypeTest({ type: "GetFeaturedCoversResponse" });
-	expect(response.data).toMatchSnapshot(); // Response is too large
+  generateTypeTest({ type: "GetFeaturedCoversResponse" });
+  expect(response.data).toMatchSnapshot(); // Response is too large
 });

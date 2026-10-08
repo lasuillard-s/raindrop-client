@@ -1,10 +1,10 @@
 import { it } from "^/tests/_helpers/vitest";
 
 it("getCurrentUser", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.user.getCurrentUser();
+  const response = await client.user.getCurrentUser();
 
-	generateTypeTest({ type: "GetCurrentUserResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetCurrentUserResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "result": true,
 		  "user": {
@@ -71,16 +71,16 @@ it("getCurrentUser", async ({ client, expect, generateTypeTest }) => {
 });
 
 it("updateCurrentUser", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.user.updateCurrentUser({
-		groups: [
-			{
-				title: "raindrop-client",
-			},
-		],
-	});
+  const response = await client.user.updateCurrentUser({
+    groups: [
+      {
+        title: "raindrop-client",
+      },
+    ],
+  });
 
-	generateTypeTest({ type: "UpdateCurrentUserResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "UpdateCurrentUserResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "_id": 2067190,
@@ -206,10 +206,10 @@ it("updateCurrentUser", async ({ client, expect, generateTypeTest }) => {
 });
 
 it("getPublicUserByName", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.user.getPublicUserByName(2067190);
+  const response = await client.user.getPublicUserByName(2067190);
 
-	generateTypeTest({ type: "GetPublicUserByNameResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetPublicUserByNameResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "result": true,
 		  "user": {
