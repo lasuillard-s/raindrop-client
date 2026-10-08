@@ -1,20 +1,20 @@
 import { it } from "^/tests/_helpers/vitest";
 
 it("getFilters", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
-	resetData: _,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
+  resetData: _,
 }) => {
-	await setupTools.createRaindrop();
-	await setupTools.createRaindrop({ important: true });
-	await setupTools.createRaindrop({ tags: ["getFilters-1", "getFilters-2"] });
+  await setupTools.createRaindrop();
+  await setupTools.createRaindrop({ important: true });
+  await setupTools.createRaindrop({ tags: ["getFilters-1", "getFilters-2"] });
 
-	const response = await client.filter.getFilters(0);
+  const response = await client.filter.getFilters(0);
 
-	generateTypeTest({ type: "GetFiltersResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetFiltersResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "collectionId": 0,
 		  "created": [

@@ -3,18 +3,18 @@ import fs from "node:fs";
 import path from "node:path";
 
 it("createRaindrop", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.raindrop.createRaindrop({
-		link: "https://raindrop.io",
-		media: [
-			{
-				link: "https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg",
-			},
-		],
-		tags: ["createRaindrop"],
-	});
+  const response = await client.raindrop.createRaindrop({
+    link: "https://raindrop.io",
+    media: [
+      {
+        link: "https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg",
+      },
+    ],
+    tags: ["createRaindrop"],
+  });
 
-	generateTypeTest({ type: "CreateRaindropResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "CreateRaindropResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "__v": 0,
@@ -62,20 +62,20 @@ it("createRaindrop", async ({ client, expect, generateTypeTest }) => {
 });
 
 it("getRaindrop", async ({ setupTools, client, expect, generateTypeTest }) => {
-	const raindrop = await setupTools.createRaindrop({
-		media: [
-			{
-				link: "https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg",
-			},
-		],
-		highlights: [{ text: "ignore", note: "" }],
-		tags: ["getRaindrop"],
-	});
+  const raindrop = await setupTools.createRaindrop({
+    media: [
+      {
+        link: "https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg",
+      },
+    ],
+    highlights: [{ text: "ignore", note: "" }],
+    tags: ["getRaindrop"],
+  });
 
-	const response = await client.raindrop.getRaindrop(raindrop.item._id);
+  const response = await client.raindrop.getRaindrop(raindrop.item._id);
 
-	generateTypeTest({ type: "GetRaindropResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetRaindropResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "author": true,
 		  "item": {
@@ -138,21 +138,21 @@ it("getRaindrop", async ({ setupTools, client, expect, generateTypeTest }) => {
 });
 
 it("updateRaindrop", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const raindrop = await setupTools.createRaindrop();
+  const raindrop = await setupTools.createRaindrop();
 
-	const response = await client.raindrop.updateRaindrop(raindrop.item._id, {
-		excerpt: "updateRaindrop",
-		tags: ["updateRaindrop"],
-		highlights: [{ text: "ignore", note: "" }],
-	});
+  const response = await client.raindrop.updateRaindrop(raindrop.item._id, {
+    excerpt: "updateRaindrop",
+    tags: ["updateRaindrop"],
+    highlights: [{ text: "ignore", note: "" }],
+  });
 
-	generateTypeTest({ type: "UpdateRaindropResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "UpdateRaindropResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "__v": 1,
@@ -205,17 +205,17 @@ it("updateRaindrop", async ({
 });
 
 it("removeRaindrop", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const raindrop = await setupTools.createRaindrop();
+  const raindrop = await setupTools.createRaindrop();
 
-	const response = await client.raindrop.removeRaindrop(raindrop.item._id);
+  const response = await client.raindrop.removeRaindrop(raindrop.item._id);
 
-	generateTypeTest({ type: "RemoveRaindropResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "RemoveRaindropResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "_id": 1809459473,
@@ -256,17 +256,17 @@ it("removeRaindrop", async ({
 });
 
 it("uploadFile", async ({ client, expect, generateTypeTest }) => {
-	const coverBlob = await fs.openAsBlob(path.join(__dirname, "./cover.png"));
-	const cover = new File([coverBlob], "cover.png", { type: "image/png" });
+  const coverBlob = await fs.openAsBlob(path.join(__dirname, "./cover.png"));
+  const cover = new File([coverBlob], "cover.png", { type: "image/png" });
 
-	const response = await client.raindrop.uploadFile(cover, 0, {
-		headers: {
-			"Content-Type": "multipart/form-data; boundary=0000000000",
-		},
-	});
+  const response = await client.raindrop.uploadFile(cover, 0, {
+    headers: {
+      "Content-Type": "multipart/form-data; boundary=0000000000",
+    },
+  });
 
-	generateTypeTest({ type: "UploadFileResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "UploadFileResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "__v": 0,
@@ -312,27 +312,27 @@ it("uploadFile", async ({ client, expect, generateTypeTest }) => {
 });
 
 it("uploadRaindropCover", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const raindrop = await setupTools.createRaindrop();
-	const coverBlob = await fs.openAsBlob(path.join(__dirname, "./cover.png"));
-	const cover = new File([coverBlob], "cover.png", { type: "image/png" });
+  const raindrop = await setupTools.createRaindrop();
+  const coverBlob = await fs.openAsBlob(path.join(__dirname, "./cover.png"));
+  const cover = new File([coverBlob], "cover.png", { type: "image/png" });
 
-	const response = await client.raindrop.uploadRaindropCover(
-		raindrop.item._id,
-		cover,
-		{
-			headers: {
-				"Content-Type": "multipart/form-data; boundary=0000000000",
-			},
-		},
-	);
+  const response = await client.raindrop.uploadRaindropCover(
+    raindrop.item._id,
+    cover,
+    {
+      headers: {
+        "Content-Type": "multipart/form-data; boundary=0000000000",
+      },
+    },
+  );
 
-	generateTypeTest({ type: "UploadRaindropCoverResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "UploadRaindropCoverResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "__v": 1,
@@ -387,21 +387,21 @@ it.skip("suggestForNewBookmark");
 it.skip("suggestForExistingBookmark");
 
 it("getRaindrops", async ({ setupTools, client, expect, generateTypeTest }) => {
-	const collection = await setupTools.createCollection();
-	await setupTools.createRaindrop({
-		collection: { $id: collection.item._id },
-	});
-	await setupTools.createRaindrop({
-		collection: { $id: collection.item._id },
-	});
-	await setupTools.createRaindrop({
-		collection: { $id: collection.item._id },
-	});
+  const collection = await setupTools.createCollection();
+  await setupTools.createRaindrop({
+    collection: { $id: collection.item._id },
+  });
+  await setupTools.createRaindrop({
+    collection: { $id: collection.item._id },
+  });
+  await setupTools.createRaindrop({
+    collection: { $id: collection.item._id },
+  });
 
-	const response = await client.raindrop.getRaindrops(collection.item._id);
+  const response = await client.raindrop.getRaindrops(collection.item._id);
 
-	generateTypeTest({ type: "GetRaindropsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetRaindropsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "collectionId": 73607392,
 		  "count": 3,
@@ -512,23 +512,23 @@ it("getRaindrops", async ({ setupTools, client, expect, generateTypeTest }) => {
 });
 
 it("updateRaindrops", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const collection = await setupTools.createCollection();
-	const raindrop = await setupTools.createRaindrop({
-		collection: { $id: collection.item._id },
-	});
+  const collection = await setupTools.createCollection();
+  const raindrop = await setupTools.createRaindrop({
+    collection: { $id: collection.item._id },
+  });
 
-	const response = await client.raindrop.updateRaindrops(collection.item._id, {
-		ids: [raindrop.item._id],
-		tags: ["updateRaindrops"],
-	});
+  const response = await client.raindrop.updateRaindrops(collection.item._id, {
+    ids: [raindrop.item._id],
+    tags: ["updateRaindrops"],
+  });
 
-	generateTypeTest({ type: "UpdateRaindropsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "UpdateRaindropsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "matched": 1,
 		  "modified": 1,
@@ -538,26 +538,26 @@ it("updateRaindrops", async ({
 });
 
 it("removeRaindrops", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const collection = await setupTools.createCollection();
-	const raindrop = await setupTools.createRaindrop({
-		collection: { $id: collection.item._id },
-	});
+  const collection = await setupTools.createCollection();
+  const raindrop = await setupTools.createRaindrop({
+    collection: { $id: collection.item._id },
+  });
 
-	const response = await client.raindrop.removeRaindrops(
-		collection.item._id,
-		"",
-		{
-			ids: [raindrop.item._id],
-		},
-	);
+  const response = await client.raindrop.removeRaindrops(
+    collection.item._id,
+    "",
+    {
+      ids: [raindrop.item._id],
+    },
+  );
 
-	generateTypeTest({ type: "RemoveRaindropsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "RemoveRaindropsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "matched": 1,
 		  "modified": 1,
@@ -567,22 +567,22 @@ it("removeRaindrops", async ({
 });
 
 it("createRaindrops", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.raindrop.createRaindrops({
-		items: [
-			{
-				link: "https://raindrop.io",
-				media: [
-					{
-						link: "https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg",
-					},
-				],
-				tags: ["createRaindrops"],
-			},
-		],
-	});
+  const response = await client.raindrop.createRaindrops({
+    items: [
+      {
+        link: "https://raindrop.io",
+        media: [
+          {
+            link: "https://t3.ftcdn.net/jpg/00/92/53/56/360_F_92535664_IvFsQeHjBzfE6sD4VHdO8u5OHUSc6yHF.jpg",
+          },
+        ],
+        tags: ["createRaindrops"],
+      },
+    ],
+  });
 
-	generateTypeTest({ type: "CreateRaindropsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "CreateRaindropsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "items": [
 		    {

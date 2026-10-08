@@ -9,26 +9,26 @@ import { resetData, type SetupTools, setupTools } from "./raindrop";
 import { generateTypeTest, type RegisterHook } from "./typechecks";
 
 export const it = base.extend({
-	// HTTP utils
-	axiosInstance,
-	mockAxios,
-	polly: [polly, { auto: true }],
-	// Schema testing
-	generateTypeTest,
-	// Raindrop.io fixtures
-	setupTools,
-	client,
-	resetData,
+  // HTTP utils
+  axiosInstance,
+  mockAxios,
+  polly: [polly, { auto: true }],
+  // Schema testing
+  generateTypeTest,
+  // Raindrop.io fixtures
+  setupTools,
+  client,
+  resetData,
 });
 
 declare module "vitest" {
-	export interface TestContext {
-		axiosInstance: AxiosInstance;
-		mockAxios: MockAdapter;
-		client: Raindrop;
-		polly: Polly;
-		generateTypeTest: RegisterHook;
-		resetData: undefined;
-		setupTools: SetupTools;
-	}
+  export interface TestContext {
+    axiosInstance: AxiosInstance;
+    mockAxios: MockAdapter;
+    client: Raindrop;
+    polly: Polly;
+    generateTypeTest: RegisterHook;
+    resetData: undefined;
+    setupTools: SetupTools;
+  }
 }

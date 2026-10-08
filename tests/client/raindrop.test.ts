@@ -3,18 +3,18 @@ import { describe, expect } from "vitest";
 
 // Skip test for deprecated function
 describe("raindrop.getAllRaindrops", () => {
-	it("fetch full pagination results", async ({ setupTools, client }) => {
-		const collection = await setupTools.createCollection();
-		const collectionId = collection.item._id;
-		await setupTools.createRaindrop({ collection: { $id: collectionId } });
-		await setupTools.createRaindrop({ collection: { $id: collectionId } });
-		await setupTools.createRaindrop({ collection: { $id: collectionId } });
+  it("fetch full pagination results", async ({ setupTools, client }) => {
+    const collection = await setupTools.createCollection();
+    const collectionId = collection.item._id;
+    await setupTools.createRaindrop({ collection: { $id: collectionId } });
+    await setupTools.createRaindrop({ collection: { $id: collectionId } });
+    await setupTools.createRaindrop({ collection: { $id: collectionId } });
 
-		const result = await client.raindrop.getAllRaindrops(collectionId, {
-			pageSize: 1,
-		});
-		expect(result.length).toBe(3);
-		expect(result).toMatchInlineSnapshot(`
+    const result = await client.raindrop.getAllRaindrops(collectionId, {
+      pageSize: 1,
+    });
+    expect(result.length).toBe(3);
+    expect(result).toMatchInlineSnapshot(`
 			[
 			  {
 			    "_id": 1809460539,
@@ -117,5 +117,5 @@ describe("raindrop.getAllRaindrops", () => {
 			  },
 			]
 		`);
-	});
+  });
 });

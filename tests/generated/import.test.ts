@@ -3,10 +3,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 it("parseURL", async ({ client, expect, generateTypeTest }) => {
-	const response = await client.import.parseURL("https://example.com");
+  const response = await client.import.parseURL("https://example.com");
 
-	generateTypeTest({ type: "ParseURLResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "ParseURLResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "item": {
 		    "cover": "<screenshot>",
@@ -24,20 +24,20 @@ it("parseURL", async ({ client, expect, generateTypeTest }) => {
 });
 
 it("checkURLsExist", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	await setupTools.createRaindrop({
-		link: "https://raindrop.com",
-	});
-	const response = await client.import.checkURLsExist({
-		urls: ["https://raindrop.com"],
-	});
+  await setupTools.createRaindrop({
+    link: "https://raindrop.com",
+  });
+  const response = await client.import.checkURLsExist({
+    urls: ["https://raindrop.com"],
+  });
 
-	generateTypeTest({ type: "CheckURLsExistResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "CheckURLsExistResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "duplicates": [
 		    {
@@ -55,21 +55,21 @@ it("checkURLsExist", async ({
 });
 
 it("importHTMLBookmarkFile", async ({ client, expect, generateTypeTest }) => {
-	const blob = await fs.openAsBlob(
-		path.join(__dirname, "./chrome-bookmarks.html"),
-	);
-	const file = new File([blob], "chrome-bookmarks.html", {
-		type: "text/html",
-	});
+  const blob = await fs.openAsBlob(
+    path.join(__dirname, "./chrome-bookmarks.html"),
+  );
+  const file = new File([blob], "chrome-bookmarks.html", {
+    type: "text/html",
+  });
 
-	const response = await client.import.importHTMLBookmarkFile(file, {
-		headers: {
-			"Content-Type": "multipart/form-data; boundary=0000000000",
-		},
-	});
+  const response = await client.import.importHTMLBookmarkFile(file, {
+    headers: {
+      "Content-Type": "multipart/form-data; boundary=0000000000",
+    },
+  });
 
-	generateTypeTest({ type: "ImportHTMLBookmarkFileResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "ImportHTMLBookmarkFileResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "count": {
 		    "bookmarks": 8,

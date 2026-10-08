@@ -1,24 +1,24 @@
 import { it } from "^/tests/_helpers/vitest";
 
 it("getAllHighlights", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
-	resetData: _,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
+  resetData: _,
 }) => {
-	await setupTools.createRaindrop({
-		highlights: [
-			{
-				text: "ignore",
-				note: "",
-			},
-		],
-	});
-	const response = await client.highlight.getAllHighlights();
+  await setupTools.createRaindrop({
+    highlights: [
+      {
+        text: "ignore",
+        note: "",
+      },
+    ],
+  });
+  const response = await client.highlight.getAllHighlights();
 
-	generateTypeTest({ type: "GetAllHighlightsResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetAllHighlightsResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "count": 1,
 		  "items": [
@@ -39,28 +39,28 @@ it("getAllHighlights", async ({
 });
 
 it("getHighlightsInCollection", async ({
-	setupTools,
-	client,
-	expect,
-	generateTypeTest,
+  setupTools,
+  client,
+  expect,
+  generateTypeTest,
 }) => {
-	const collection = await setupTools.createCollection();
-	await setupTools.createRaindrop({
-		collection: { $id: collection.item._id },
-		highlights: [
-			{
-				text: "ignore",
-				note: "",
-			},
-		],
-	});
+  const collection = await setupTools.createCollection();
+  await setupTools.createRaindrop({
+    collection: { $id: collection.item._id },
+    highlights: [
+      {
+        text: "ignore",
+        note: "",
+      },
+    ],
+  });
 
-	const response = await client.highlight.getHighlightsInCollection(
-		collection.item._id,
-	);
+  const response = await client.highlight.getHighlightsInCollection(
+    collection.item._id,
+  );
 
-	generateTypeTest({ type: "GetHighlightsInCollectionResponse" });
-	expect(response.data).toMatchInlineSnapshot(`
+  generateTypeTest({ type: "GetHighlightsInCollectionResponse" });
+  expect(response.data).toMatchInlineSnapshot(`
 		{
 		  "count": 1,
 		  "items": [

@@ -9,149 +9,149 @@ const code = "<AUTHORIZATION_CODE>";
 const refresh_token = "<REFRESH_TOKEN>";
 
 const tokenResponse = {
-	access_token: "<ACCESS_TOKEN>",
-	refresh_token: refresh_token,
-	expires: 1209599974,
-	expires_in: 1209599,
-	token_type: "Bearer",
+  access_token: "<ACCESS_TOKEN>",
+  refresh_token: refresh_token,
+  expires: 1209599974,
+  expires_in: 1209599,
+  token_type: "Bearer",
 };
 
 describe("auth.exchangeToken", () => {
-	it("exchange authorization code with access token", async ({
-		mockAxios,
-		client,
-	}) => {
-		mockAxios
-			.onPost("https://api.raindrop.io/v1/oauth/access_token")
-			.reply((config) => {
-				expect(JSON.parse(config.data)).toEqual({
-					client_id,
-					client_secret,
-					redirect_uri,
-					code,
-					grant_type: "authorization_code",
-				});
-				return [200, tokenResponse];
-			});
-		const response = await client.auth.exchangeToken({
-			client_id,
-			client_secret,
-			redirect_uri,
-			code,
-		});
-		expect(mockAxios.history.post.length).toBe(1);
-		expect(response.status).toBe(200);
-		expect(response.data).toEqual(tokenResponse);
-	});
+  it("exchange authorization code with access token", async ({
+    mockAxios,
+    client,
+  }) => {
+    mockAxios
+      .onPost("https://api.raindrop.io/v1/oauth/access_token")
+      .reply((config) => {
+        expect(JSON.parse(config.data)).toEqual({
+          client_id,
+          client_secret,
+          redirect_uri,
+          code,
+          grant_type: "authorization_code",
+        });
+        return [200, tokenResponse];
+      });
+    const response = await client.auth.exchangeToken({
+      client_id,
+      client_secret,
+      redirect_uri,
+      code,
+    });
+    expect(mockAxios.history.post.length).toBe(1);
+    expect(response.status).toBe(200);
+    expect(response.data).toEqual(tokenResponse);
+  });
 
-	it("incorrect authorization code", async ({ mockAxios, client }) => {
-		mockAxios
-			.onPost("https://api.raindrop.io/v1/oauth/access_token")
-			.reply((config) => {
-				expect(JSON.parse(config.data)).toEqual({
-					client_id,
-					client_secret,
-					redirect_uri,
-					code,
-					grant_type: "authorization_code",
-				});
-				return [
-					200,
-					{
-						result: false,
-						status: 400,
-						errorMessage: "Incorrect code",
-					},
-				];
-			});
-		await expect(
-			client.auth.exchangeToken({
-				client_id,
-				client_secret,
-				redirect_uri,
-				code,
-			}),
-		).rejects.toThrow(/^Request failed with error: .+$/);
-	});
+  it("incorrect authorization code", async ({ mockAxios, client }) => {
+    mockAxios
+      .onPost("https://api.raindrop.io/v1/oauth/access_token")
+      .reply((config) => {
+        expect(JSON.parse(config.data)).toEqual({
+          client_id,
+          client_secret,
+          redirect_uri,
+          code,
+          grant_type: "authorization_code",
+        });
+        return [
+          200,
+          {
+            result: false,
+            status: 400,
+            errorMessage: "Incorrect code",
+          },
+        ];
+      });
+    await expect(
+      client.auth.exchangeToken({
+        client_id,
+        client_secret,
+        redirect_uri,
+        code,
+      }),
+    ).rejects.toThrow(/^Request failed with error: .+$/);
+  });
 
-	it("client id or client secret is not valid", async ({
-		mockAxios,
-		client,
-	}) => {
-		mockAxios
-			.onPost("https://api.raindrop.io/v1/oauth/access_token")
-			.reply((config) => {
-				expect(JSON.parse(config.data)).toEqual({
-					client_id,
-					client_secret,
-					redirect_uri,
-					code,
-					grant_type: "authorization_code",
-				});
-				return [
-					200,
-					{
-						result: false,
-						status: 400,
-						errorMessage: "client_id or client_secret is invalid",
-					},
-				];
-			});
-		await expect(
-			client.auth.exchangeToken({
-				client_id,
-				client_secret,
-				redirect_uri,
-				code,
-			}),
-		).rejects.toThrow(/^Request failed with error: .+$/);
-	});
+  it("client id or client secret is not valid", async ({
+    mockAxios,
+    client,
+  }) => {
+    mockAxios
+      .onPost("https://api.raindrop.io/v1/oauth/access_token")
+      .reply((config) => {
+        expect(JSON.parse(config.data)).toEqual({
+          client_id,
+          client_secret,
+          redirect_uri,
+          code,
+          grant_type: "authorization_code",
+        });
+        return [
+          200,
+          {
+            result: false,
+            status: 400,
+            errorMessage: "client_id or client_secret is invalid",
+          },
+        ];
+      });
+    await expect(
+      client.auth.exchangeToken({
+        client_id,
+        client_secret,
+        redirect_uri,
+        code,
+      }),
+    ).rejects.toThrow(/^Request failed with error: .+$/);
+  });
 });
 
 describe("auth.refreshToken", () => {
-	it("refresh token", async ({ mockAxios, client }) => {
-		mockAxios
-			.onPost("https://api.raindrop.io/v1/oauth/access_token")
-			.reply((config) => {
-				expect(JSON.parse(config.data)).toEqual({
-					client_id,
-					client_secret,
-					refresh_token,
-					grant_type: "refresh_token",
-				});
-				return [200, tokenResponse];
-			});
-		const response = await client.auth.refreshToken({
-			client_id,
-			client_secret,
-			refresh_token,
-		});
-		expect(mockAxios.history.post.length).toBe(1);
-		expect(response.status).toBe(200);
-		expect(response.data).toEqual(tokenResponse);
-	});
+  it("refresh token", async ({ mockAxios, client }) => {
+    mockAxios
+      .onPost("https://api.raindrop.io/v1/oauth/access_token")
+      .reply((config) => {
+        expect(JSON.parse(config.data)).toEqual({
+          client_id,
+          client_secret,
+          refresh_token,
+          grant_type: "refresh_token",
+        });
+        return [200, tokenResponse];
+      });
+    const response = await client.auth.refreshToken({
+      client_id,
+      client_secret,
+      refresh_token,
+    });
+    expect(mockAxios.history.post.length).toBe(1);
+    expect(response.status).toBe(200);
+    expect(response.data).toEqual(tokenResponse);
+  });
 
-	it("incorrect refresh token", async ({ mockAxios, client }) => {
-		mockAxios
-			.onPost("https://api.raindrop.io/v1/oauth/access_token")
-			.reply((config) => {
-				expect(JSON.parse(config.data)).toEqual({
-					client_id,
-					client_secret,
-					refresh_token,
-					grant_type: "refresh_token",
-				});
-				return [
-					200,
-					{
-						result: false,
-						status: 400,
-						errorMessage: "Incorrect refresh_token",
-					},
-				];
-			});
-		await expect(
-			client.auth.refreshToken({ client_id, client_secret, refresh_token }),
-		).rejects.toThrow(/^Request failed with error: .+$/);
-	});
+  it("incorrect refresh token", async ({ mockAxios, client }) => {
+    mockAxios
+      .onPost("https://api.raindrop.io/v1/oauth/access_token")
+      .reply((config) => {
+        expect(JSON.parse(config.data)).toEqual({
+          client_id,
+          client_secret,
+          refresh_token,
+          grant_type: "refresh_token",
+        });
+        return [
+          200,
+          {
+            result: false,
+            status: 400,
+            errorMessage: "Incorrect refresh_token",
+          },
+        ];
+      });
+    await expect(
+      client.auth.refreshToken({ client_id, client_secret, refresh_token }),
+    ).rejects.toThrow(/^Request failed with error: .+$/);
+  });
 });

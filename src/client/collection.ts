@@ -1,7 +1,7 @@
 import {
-	CollectionApi as _CollectionApi,
-	type GetChildCollectionsResponse,
-	type GetRootCollectionsResponse,
+  CollectionApi as _CollectionApi,
+  type GetChildCollectionsResponse,
+  type GetRootCollectionsResponse,
 } from "~/generated";
 import { makeTree, TreeNode, type TreeSource } from "~/utils/tree";
 
@@ -9,56 +9,56 @@ type GetRootCollectionsResponseItem = GetRootCollectionsResponse["items"][0];
 type GetChildCollectionsResponseItem = GetChildCollectionsResponse["items"][0];
 
 export type CollectionItem =
-	| GetRootCollectionsResponseItem
-	| GetChildCollectionsResponseItem;
+  | GetRootCollectionsResponseItem
+  | GetChildCollectionsResponseItem;
 
 export class CollectionApi extends _CollectionApi {
-	/**
-	 * Create structured tree of collections.
-	 * @returns Root of tree.
-	 * @deprecated This function is deprecated and will be removed in a future release.
-	 */
-	async getCollectionTree() {
-		const [{ data: groups }, { data: collections }] = await Promise.all([
-			this.getRootCollections(),
-			this.getChildCollections(),
-		]);
+  /**
+   * Create structured tree of collections.
+   * @returns Root of tree.
+   * @deprecated This function is deprecated and will be removed in a future release.
+   */
+  async getCollectionTree() {
+    const [{ data: groups }, { data: collections }] = await Promise.all([
+      this.getRootCollections(),
+      this.getChildCollections(),
+    ]);
 
-		const groupNodes: TreeSource<GetRootCollectionsResponseItem>[] =
-			groups.items.map((item) => ({
-				data: item,
-				id: item._id.toString(),
-				parent: null,
+    const groupNodes: TreeSource<GetRootCollectionsResponseItem>[] =
+      groups.items.map((item) => ({
+        data: item,
+        id: item._id.toString(),
+        parent: null,
 
-				toNode() {
-					return new TreeNode(this.data);
-				},
-			}));
+        toNode() {
+          return new TreeNode(this.data);
+        },
+      }));
 
-		const collectionNodes: TreeSource<GetChildCollectionsResponseItem>[] =
-			collections.items.map((item) => ({
-				data: item,
-				id: item._id.toString(),
-				parent: item.parent?.$id.toString() || null,
+    const collectionNodes: TreeSource<GetChildCollectionsResponseItem>[] =
+      collections.items.map((item) => ({
+        data: item,
+        id: item._id.toString(),
+        parent: item.parent?.$id.toString() || null,
 
-				toNode() {
-					return new TreeNode(this.data);
-				},
-			}));
+        toNode() {
+          return new TreeNode(this.data);
+        },
+      }));
 
-		const source: TreeSource<CollectionItem>[] =
-			groupNodes.concat(collectionNodes);
-		source.sort(
-			(a, b) =>
-				a.data.title.localeCompare(b.data.title) || a.data._id - b.data._id,
-		);
+    const source: TreeSource<CollectionItem>[] =
+      groupNodes.concat(collectionNodes);
+    source.sort(
+      (a, b) =>
+        a.data.title.localeCompare(b.data.title) || a.data._id - b.data._id,
+    );
 
-		// ? Deduplicate items; can't explain the detail because it's been a while since I wrote this.
-		const sourceDedupe = source.filter(
-			(obj1, idx, arr) => arr.findIndex((obj2) => obj2.id === obj1.id) === idx,
-		);
+    // ? Deduplicate items; can't explain the detail because it's been a while since I wrote this.
+    const sourceDedupe = source.filter(
+      (obj1, idx, arr) => arr.findIndex((obj2) => obj2.id === obj1.id) === idx,
+    );
 
-		const rootNode = makeTree(null, sourceDedupe);
-		return rootNode;
-	}
+    const rootNode = makeTree(null, sourceDedupe);
+    return rootNode;
+  }
 }

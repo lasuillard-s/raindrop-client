@@ -1,34 +1,37 @@
 {
-	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-	"files": {
-		"includes": [
-			"src/**",
-			"!**/src/generated/**/*",
-			"!**/coverage/",
-			"tests/**",
-			"!tests/generated/**/*.html",
-			"tsup.config.ts",
-			"vitest.config.ts",
-			"openapitools.json",
-			"package.json",
-			"tsconfig.json",
-			"biome.jsonc"
-		]
-	},
-	"linter": {
-		"rules": {
-			"style": {
-				"noParameterAssign": "error",
-				"useAsConstAssertion": "error",
-				"useDefaultParameterLast": "error",
-				"useEnumInitializers": "error",
-				"useSelfClosingElements": "error",
-				"useSingleVarDeclarator": "error",
-				"noUnusedTemplateLiteral": "error",
-				"useNumberNamespace": "error",
-				"noInferrableTypes": "error",
-				"noUselessElse": "error"
-			}
-		}
-	}
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "files": {
+    "includes": [
+      "src/**",
+      "!**/src/generated/**/*",
+      "!**/coverage/",
+      "tests/**",
+      "!tests/generated/**/*.html",
+      "tsup.config.ts",
+      "vitest.config.ts",
+      "openapitools.json",
+      "package.json",
+      "tsconfig.json",
+      "biome.jsonc"
+    ]
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
+      }
+    }
+  },
+  "formatter": {
+    "indentStyle": "space"
+  }
 }
