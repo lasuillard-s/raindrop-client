@@ -88,7 +88,7 @@
     "http-server": "14.1.1",
     "slugify": "1.6.9",
     "tslib": "2.8.1",
-    "tsup": "8.5.1",
+    "tsup": "9.0.0",
     "typedoc": "0.28.20",
     "typedoc-plugin-missing-exports": "4.1.4",
     "typescript": "6.0.3",
