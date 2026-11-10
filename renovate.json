@@ -9,16 +9,47 @@
       "managerFilePatterns": [
         "/^openapitools.json$/"
       ],
-      "matchStrings": ["\"version\": \\s*\"(?<currentValue>[^\"]+)\""],
+      "matchStrings": [
+        "\"version\": \\s*\"(?<currentValue>[^\"]+)\""
+      ],
       "datasourceTemplate": "maven",
       "depNameTemplate": "org.openapitools:openapi-generator"
     }
   ],
   "packageRules": [
     {
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["dependencies", "peerDependencies"],
+      "matchManagers": [
+        "npm"
+      ],
+      "matchDepTypes": [
+        "dependencies",
+        "peerDependencies"
+      ],
       "rangeStrategy": "widen"
+    },
+    {
+      "description": "Schedule both OpenAPI generator components monthly",
+      "matchPackageNames": [
+        "@openapitools/openapi-generator-cli",
+        "org.openapitools:openapi-generator"
+      ],
+      "schedule": [
+        "* 9-17 1 * *"
+      ]
+    },
+    {
+      "description": "Group non-major OpenAPI tooling updates without requiring identical versions",
+      "matchPackageNames": [
+        "@openapitools/openapi-generator-cli",
+        "org.openapitools:openapi-generator"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "OpenAPI Tooling (non-major)",
+      "groupSlug": "openapi-tooling",
+      "automerge": false
     }
   ]
 }
