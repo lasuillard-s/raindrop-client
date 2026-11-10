@@ -7,6 +7,7 @@ install:
 
 # Update deps and tools
 update:
+    nix flake update
     npm update
     pre-commit autoupdate
 
