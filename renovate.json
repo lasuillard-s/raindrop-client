@@ -18,6 +18,7 @@
   ],
   "packageRules": [
     {
+      "description": "Widen npm library dependency and peer dependency ranges",
       "matchManagers": [
         "npm"
       ],
@@ -28,7 +29,7 @@
       "rangeStrategy": "widen"
     },
     {
-      "description": "Schedule both OpenAPI generator components monthly",
+      "description": "Schedule OpenAPI generator components monthly",
       "matchPackageNames": [
         "@openapitools/openapi-generator-cli",
         "org.openapitools:openapi-generator"
@@ -38,7 +39,7 @@
       ]
     },
     {
-      "description": "Group non-major OpenAPI tooling updates without requiring identical versions",
+      "description": "Review non-major OpenAPI tooling together without coupling versions",
       "matchPackageNames": [
         "@openapitools/openapi-generator-cli",
         "org.openapitools:openapi-generator"
